@@ -30,6 +30,6 @@ public class Opis extends ActionBarActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_opis);
         
-        Toast.makeText(this, "Opis!", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Opis!!", Toast.LENGTH_LONG).show();
     }
 }
