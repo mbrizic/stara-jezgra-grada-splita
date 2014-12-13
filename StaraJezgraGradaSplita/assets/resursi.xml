@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<palaca>
+    <lokacija>
+	    <koordinate>1234</koordinate>
+	    <slika>http://adria.fesb.hr/~isoric/GIS/img019.jpg</slika>
+	    <naslov>Probni naslov</naslov>
+	    <opis>Probni opis lokacija</opis>
+    </lokacija>
+</palaca>
