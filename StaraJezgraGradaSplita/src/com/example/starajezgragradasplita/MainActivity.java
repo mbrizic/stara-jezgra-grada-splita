@@ -47,6 +47,8 @@ public class MainActivity extends ActionBarActivity {
         
         inicijalizirajNavigationDrawer();
 		inicijalizirajMapu();
+		
+		karta.dodajMarker(koordinatePalace, "Naslov markera", "tu se nalazi ovo i ono... ");
     }
     
     @Override
@@ -124,31 +126,21 @@ public class MainActivity extends ActionBarActivity {
 
    
     
-    //unutarnja klasa koja obraðuje klikove na navbar
+//unutarnja klasa koja obraðuje klikove na navbar
     private class DrawerItemClickListener implements ListView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView parent, View view, int position, long id) {
             selectItem(position);
         }
     }
-
-	//klikovi na elemente ladice
-	private void selectItem(int position) {
-		// primjer koda za mijenjanje sadržaja ovisno o odabranoj opciji navbara
-//    	    Fragment fragment = new PlanetFragment();
-//    	    Bundle args = new Bundle();
-//    	    args.putInt(PlanetFragment.ARG_PLANET_NUMBER, position);
-//    	    fragment.setArguments(args);
-//    	
-//    	    // Insert the fragment by replacing any existing fragment
-//    	    FragmentManager fragmentManager = getFragmentManager();
-//    	    fragmentManager.beginTransaction()
-//    	                   .replace(R.id.content_frame, fragment)
-//    	                   .commit();
-	
-	    // Oznaèi odabrani element, postavi naslov i zatvori ladicu
-	    mDrawerList.setItemChecked(position, true);
-	    setTitle(mItems[position]);
-	    mDrawerLayout.closeDrawer(mDrawerList);
-	}
+		//klikovi na elemente ladice
+		private void selectItem(int position) {
+		
+		    // Oznaèi odabrani element, postavi naslov i zatvori ladicu
+		    mDrawerList.setItemChecked(position, true);
+		    setTitle(mItems[position]);
+		    mDrawerLayout.closeDrawer(mDrawerList);
+		    
+		    //tu ispod možeš dodati da otvara novi activity
+		}
 }
