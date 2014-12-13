@@ -339,7 +339,7 @@ int id action_context_bar 0x7f08002f
 int id action_menu_divider 0x7f080028
 int id action_menu_presenter 0x7f080029
 int id action_mode_close_button 0x7f080036
-int id action_settings 0x7f080054
+int id action_settings 0x7f080057
 int id activity_chooser_view_content 0x7f080037
 int id always 0x7f08001e
 int id beginning 0x7f080023
@@ -360,6 +360,7 @@ int id edit_query 0x7f080042
 int id end 0x7f080025
 int id expand_activities_button 0x7f080038
 int id expanded_menu 0x7f08003e
+int id gallery 0x7f080052
 int id grayscale 0x7f080012
 int id holo_dark 0x7f080005
 int id holo_light 0x7f080006
@@ -379,6 +380,7 @@ int id monochrome 0x7f080013
 int id never 0x7f08001c
 int id none 0x7f080000
 int id normal 0x7f080001
+int id picture 0x7f080054
 int id production 0x7f080007
 int id progress_circular 0x7f08002a
 int id progress_horizontal 0x7f08002b
@@ -405,8 +407,9 @@ int id strict_sandbox 0x7f080009
 int id submit_area 0x7f08004b
 int id tabMode 0x7f080015
 int id terrain 0x7f080003
-int id text 0x7f080053
-int id textView1 0x7f080052
+int id text 0x7f080056
+int id textView1 0x7f080053
+int id textView2 0x7f080055
 int id title 0x7f08003d
 int id top_action_bar 0x7f080032
 int id up 0x7f080033
@@ -494,6 +497,9 @@ int string decline 0x7f060003
 int string drawer_close 0x7f060034
 int string drawer_open 0x7f060033
 int string hello_world 0x7f060031
+int string picture 0x7f060035
+int string select_intro 0x7f060036
+int string show_intro 0x7f060037
 int string store_picture_message 0x7f060001
 int string store_picture_title 0x7f060000
 int string wallet_buy_button_place_holder 0x7f060022
@@ -744,6 +750,8 @@ int styleable MenuView_android_itemTextAppearance 1
 int styleable MenuView_android_preserveIconSpacing 7
 int styleable MenuView_android_verticalDivider 3
 int styleable MenuView_android_windowAnimationStyle 0
+int[] styleable PicGallery { 0x0101004c }
+int styleable PicGallery_android_galleryItemBackground 0
 int[] styleable SearchView { 0x0101011f, 0x01010220, 0x01010264, 0x7f01007a, 0x7f01007b }
 int styleable SearchView_android_imeOptions 2
 int styleable SearchView_android_inputType 1
