@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- za galeriju u klasi Opis -->
+<resources>
+    <declare-styleable name="PicGallery">
+        <attr name="android:galleryItemBackground" />
+    </declare-styleable>
+</resources>
