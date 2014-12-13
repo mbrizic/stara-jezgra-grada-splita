@@ -1,8 +1,5 @@
 package com.example.starajezgragradasplita;
 
-import android.app.Application;
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
@@ -10,16 +7,15 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.CameraPosition;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.GroundOverlayOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.mbrizic.starajezgragradasplita.R;
 
@@ -73,7 +69,16 @@ public class MainActivity extends ActionBarActivity {
         	karta.mapa = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
  
             karta.mapa.setMapType(vrstaMape); 
-            karta.pomakni(koordinatePalace, zoomPalace);            
+            karta.pomakni(koordinatePalace, zoomPalace);    
+            
+            //
+            GroundOverlayOptions mapaPalace = new GroundOverlayOptions()
+            									.image(BitmapDescriptorFactory.fromResource(R.drawable.mapa))
+            									.position(koordinatePalace, 363f, 394f)
+            									.transparency(0.3f);
+            karta.mapa.addGroundOverlay(mapaPalace);
+            
+            //
             
             if (karta.mapa == null) //ako nije dobro postavljena
                 Toast.makeText(this, "Nešto je pošlo po krivu", Toast.LENGTH_LONG).show();            
