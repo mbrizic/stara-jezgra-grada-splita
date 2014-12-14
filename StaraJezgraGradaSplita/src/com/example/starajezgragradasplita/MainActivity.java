@@ -1,5 +1,6 @@
 package com.example.starajezgragradasplita;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
@@ -93,7 +94,7 @@ public class MainActivity extends ActionBarActivity {
 
     private void inicijalizirajNavigationDrawer(){
     	
-    	mItems = new String[]{"jedan", "dva", "tri"}; //inaèe koristit getResources().getStringArray(R.array.navbar);
+    	mItems = new String[]{"Otvori aktivnost Opis", "test1", "test2"}; //inaèe koristit getResources().getStringArray(R.array.navbar);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
         
@@ -105,14 +106,12 @@ public class MainActivity extends ActionBarActivity {
             /** Called when a drawer has settled in a completely closed state. */
             public void onDrawerClosed(View view) {
                 super.onDrawerClosed(view);
-                //getActionBar().setTitle("Stara jezgra grada Splita");
                 invalidateOptionsMenu(); // ne znam zašto, ali potrebno
             }
 
             /** Called when a drawer has settled in a completely open state. */
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
-                //getActionBar().setTitle("Opcije");
                 invalidateOptionsMenu(); // takoðer, nemam pojma što je ovo, al potrebno je
             }
         };
@@ -147,11 +146,19 @@ public class MainActivity extends ActionBarActivity {
 		//klikovi na elemente ladice
 		private void selectItem(int position) {
 		
-		    // Oznaèi odabrani element, postavi naslov i zatvori ladicu
-		    mDrawerList.setItemChecked(position, true);
-		    setTitle(mItems[position]);
+		    // Oznaèi odabrani element i zatvori ladicu
 		    mDrawerLayout.closeDrawer(mDrawerList);
 		    
-		    //tu ispod možeš dodati da otvara novi activity
+		    //obradi dogaðaj
+		    switch(position){
+			    case 0:
+			    	startActivity(new Intent(this, Opis.class));
+			    	break;
+			    default:
+			    	Toast.makeText(this, "odabrana je stavka " + String.valueOf(position)+ " - " + mItems[position], Toast.LENGTH_LONG).show();
+			    	break;
+		    
+		    }	    
+		    
 		}
 }
