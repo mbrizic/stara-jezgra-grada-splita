@@ -76,16 +76,16 @@ public class MainActivity extends ActionBarActivity {
         	karta.mapa = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
  
             karta.mapa.setMapType(vrstaMape); 
-            karta.pomakni(koordinatePalace, zoomPalace);    
+            karta.mapa.setMyLocationEnabled(true);
+            karta.mapa.getUiSettings().setCompassEnabled(true);
             
-            //
+            karta.pomakni(koordinatePalace, zoomPalace);   
+            
             GroundOverlayOptions mapaPalace = new GroundOverlayOptions()
             									.image(BitmapDescriptorFactory.fromResource(R.drawable.mapa)) //može biti i R.drawable.mapa_transp
             									.positionFromBounds(new LatLngBounds(koordinateJZRubaSlike, koordinateSIRubaSlike))
             									.transparency(0.0f);
             karta.mapa.addGroundOverlay(mapaPalace);
-            
-            //
             
             if (karta.mapa == null) //ako nije dobro postavljena
                 Toast.makeText(this, "Nešto je pošlo po krivu", Toast.LENGTH_LONG).show();            
