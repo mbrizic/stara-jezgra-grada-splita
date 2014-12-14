@@ -17,6 +17,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.GroundOverlayOptions;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 import com.mbrizic.starajezgragradasplita.R;
 
 
@@ -26,6 +27,8 @@ public class MainActivity extends ActionBarActivity {
 	private final int vrstaMape = GoogleMap.MAP_TYPE_HYBRID; //inaèe može biti i TERRAIN, NORMAL ili SATTELITE;
 	private int zoomPalace = 17;
 	private LatLng koordinatePalace; //postavljeno u onCreate
+	private LatLng koordinateJZRubaSlike;
+	private LatLng koordinateSIRubaSlike;
 	
 	//stvari za navigation drawer (koji je nedovršen)
 	private String[] mItems;
@@ -40,6 +43,9 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
         
         koordinatePalace = new LatLng(43.5081322, 16.4410438);
+       
+        koordinateJZRubaSlike = new LatLng(43.507170, 16.438616);
+        koordinateSIRubaSlike = new LatLng(43.509588, 16.441715);
         
         inicijalizirajNavigationDrawer();
 		inicijalizirajMapu();
@@ -73,9 +79,9 @@ public class MainActivity extends ActionBarActivity {
             
             //
             GroundOverlayOptions mapaPalace = new GroundOverlayOptions()
-            									.image(BitmapDescriptorFactory.fromResource(R.drawable.mapa))
-            									.position(koordinatePalace, 363f, 394f)
-            									.transparency(0.3f);
+            									.image(BitmapDescriptorFactory.fromResource(R.drawable.mapa)) //može biti i R.drawable.mapa_transp
+            									.positionFromBounds(new LatLngBounds(koordinateJZRubaSlike, koordinateSIRubaSlike))
+            									.transparency(0.0f);
             karta.mapa.addGroundOverlay(mapaPalace);
             
             //
