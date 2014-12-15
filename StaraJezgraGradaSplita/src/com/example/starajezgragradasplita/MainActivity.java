@@ -26,9 +26,6 @@ import com.mbrizic.starajezgragradasplita.R;
 public class MainActivity extends ActionBarActivity {
 
 	private Karta karta;
-	private final int vrstaMape = GoogleMap.MAP_TYPE_HYBRID; //inaèe može biti i TERRAIN, NORMAL ili SATTELITE;
-	private int zoomPalace = 17;
-	private LatLng koordinatePalace; //postavljeno u onCreate
 	private LatLng koordinateJZRubaSlike;
 	private LatLng koordinateSIRubaSlike;
 	
@@ -43,21 +40,16 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        
-        koordinatePalace = new LatLng(43.5081322, 16.4410438);
        
-        koordinateJZRubaSlike = new LatLng(43.507170, 16.438616);
-        koordinateSIRubaSlike = new LatLng(43.509588, 16.441715);
-        
-        inicijalizirajNavigationDrawer();
 		inicijalizirajMapu();
+        inicijalizirajNavigationDrawer();
 		
 		//Testni markeri
-		karta.dodajMarker(koordinatePalace, "Naslov markera", "tu se nalazi ovo i ono... ");
-		karta.dodajMarker(koordinateSIRubaSlike, "Drugi marker", "ovo je inaèe SI rub slike");
+		karta.dodajMarker(karta.koordinateCentraPalace, "Naslov markera", "tu se nalazi ovo i ono... ");
+		karta.dodajMarker(karta.koordinateSIRubaSlike, "Drugi marker", "ovo je inaèe SI rub slike");
     }
     
-    @Override
+    @Override //ovo je za postavke
     public boolean onOptionsItemSelected(MenuItem item) {
 
         if (mDrawerToggle.onOptionsItemSelected(item)) {
@@ -78,28 +70,17 @@ public class MainActivity extends ActionBarActivity {
     	if (karta.mapa == null) { 
         	karta.mapa = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
  
-            karta.mapa.setMapType(vrstaMape); 
-            karta.mapa.setMyLocationEnabled(true);
-            karta.mapa.getUiSettings().setCompassEnabled(true);
+        	karta.postavi();        	
+        	karta.mapa.setOnMarkerClickListener(new OnMarkerClickListener()); //definiran dolje kao unutranja klasa
             
-            karta.mapa.setOnMarkerClickListener(new OnMarkerClickListener()); //definiran dolje kao unutranja klasa
-            
-            karta.pomakni(koordinatePalace, zoomPalace);   
-            
-            GroundOverlayOptions mapaPalace = new GroundOverlayOptions()
-            									.image(BitmapDescriptorFactory.fromResource(R.drawable.mapa)) //može biti i R.drawable.mapa_transp
-            									.positionFromBounds(new LatLngBounds(koordinateJZRubaSlike, koordinateSIRubaSlike))
-            									.transparency(0.3f);
-            karta.mapa.addGroundOverlay(mapaPalace);
-            
-            if (karta.mapa == null) //ako nije dobro postavljena
-                Toast.makeText(this, "Nešto je pošlo po krivu", Toast.LENGTH_LONG).show();            
+            if (karta.mapa == null) 
+            	Toast.makeText(this, "Nešto je pošlo po krivu", Toast.LENGTH_LONG).show();            
     	}    	
     }
 
     private void inicijalizirajNavigationDrawer(){
     	
-    	mItems = new String[]{"Otvori aktivnost Opis", "test1", "test2"}; //inaèe koristit getResources().getStringArray(R.array.navbar);
+    	mItems = new String[]{"Otvori aktivnost Opis", "Obièna mapa", "Transparentna", "test1"}; //inaèe koristit getResources().getStringArray(R.array.navbar);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
         
@@ -108,13 +89,13 @@ public class MainActivity extends ActionBarActivity {
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
 			        		R.drawable.ic_drawer, R.string.drawer_open, R.string.drawer_close){
         		
-            /** Called when a drawer has settled in a completely closed state. */
+            /** poziva se kad se ladica skroz zatvori */
             public void onDrawerClosed(View view) {
                 super.onDrawerClosed(view);
                 invalidateOptionsMenu(); // ne znam zašto, ali potrebno
             }
 
-            /** Called when a drawer has settled in a completely open state. */
+            /** poziva se kad se ladica skroz otvori */
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
                 invalidateOptionsMenu(); // takoðer, nemam pojma što je ovo, al potrebno je
@@ -141,19 +122,15 @@ public class MainActivity extends ActionBarActivity {
 
 
 	private class OnMarkerClickListener implements GoogleMap.OnMarkerClickListener{
-
 		@Override
 		public boolean onMarkerClick(Marker marker) {
 			handleMarkerClick(marker);
-			return false; //napravi i standarni dogaðaj, uz hendlanje (true ako ne želim to)
+			return false; //da obavi i standarni dogaðaj (prikaz tooltipa) uz hendlanje (true ako ne želiš to)
 		}			
 	}	
-	
-	private void handleMarkerClick(Marker marker){
-		Toast.makeText(this, "To je marker id: " + marker.getId() + ", naslov: " + marker.getTitle(), Toast.LENGTH_LONG).show();
-	}
+
     
-//unutarnja klasa koja obraðuje klikove na navbar
+	//unutarnja klasa koja obraðuje klikove na navbar
     private class DrawerItemClickListener implements ListView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView parent, View view, int position, long id) {
@@ -164,14 +141,20 @@ public class MainActivity extends ActionBarActivity {
     //klikovi na elemente ladice
     private void selectItem(int position) {
 
-    	// Oznaèi odabrani element i zatvori ladicu
-    	mDrawerLayout.closeDrawer(mDrawerList);
+    	mDrawerLayout.closeDrawer(mDrawerList); //zatvori ladicu
 
     	//obradi dogaðaj
     	switch(position){
     	case 0:
     		startActivity(new Intent(this, Opis.class));
     		break;
+    	case 1:
+    		karta.promjeniSloj(R.drawable.mapa, 0.3f);
+    		Toast.makeText(this, "Postavljen obièan sloj", Toast.LENGTH_SHORT).show();
+    		break;
+    	case 2:
+    		karta.promjeniSloj(R.drawable.mapa_transp, 0.3f);
+    		Toast.makeText(this, "Postavljen transparentan sloj", Toast.LENGTH_SHORT).show();
     	default:
     		Toast.makeText(this, "odabrana je stavka " + String.valueOf(position)+ " - " + mItems[position], Toast.LENGTH_LONG).show();
     		break;
@@ -179,4 +162,11 @@ public class MainActivity extends ActionBarActivity {
     	}	    
 
     }
+    
+	//klikovi na markere
+	private void handleMarkerClick(Marker marker){
+		
+		Toast.makeText(this, "To je marker id: " + marker.getId() + ", naslov: " + marker.getTitle(), Toast.LENGTH_LONG).show();
+	
+	}
 }
