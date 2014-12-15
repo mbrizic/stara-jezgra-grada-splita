@@ -19,6 +19,7 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.GroundOverlayOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.gms.maps.model.Marker;
 import com.mbrizic.starajezgragradasplita.R;
 
 
@@ -51,7 +52,9 @@ public class MainActivity extends ActionBarActivity {
         inicijalizirajNavigationDrawer();
 		inicijalizirajMapu();
 		
+		//Testni markeri
 		karta.dodajMarker(koordinatePalace, "Naslov markera", "tu se nalazi ovo i ono... ");
+		karta.dodajMarker(koordinateSIRubaSlike, "Drugi marker", "ovo je inaèe SI rub slike");
     }
     
     @Override
@@ -79,12 +82,14 @@ public class MainActivity extends ActionBarActivity {
             karta.mapa.setMyLocationEnabled(true);
             karta.mapa.getUiSettings().setCompassEnabled(true);
             
+            karta.mapa.setOnMarkerClickListener(new OnMarkerClickListener()); //definiran dolje kao unutranja klasa
+            
             karta.pomakni(koordinatePalace, zoomPalace);   
             
             GroundOverlayOptions mapaPalace = new GroundOverlayOptions()
             									.image(BitmapDescriptorFactory.fromResource(R.drawable.mapa)) //može biti i R.drawable.mapa_transp
             									.positionFromBounds(new LatLngBounds(koordinateJZRubaSlike, koordinateSIRubaSlike))
-            									.transparency(0.0f);
+            									.transparency(0.3f);
             karta.mapa.addGroundOverlay(mapaPalace);
             
             if (karta.mapa == null) //ako nije dobro postavljena
@@ -134,7 +139,19 @@ public class MainActivity extends ActionBarActivity {
         return true;
     }
 
-   
+
+	private class OnMarkerClickListener implements GoogleMap.OnMarkerClickListener{
+
+		@Override
+		public boolean onMarkerClick(Marker marker) {
+			handleMarkerClick(marker);
+			return false; //napravi i standarni dogaðaj, uz hendlanje (true ako ne želim to)
+		}			
+	}	
+	
+	private void handleMarkerClick(Marker marker){
+		Toast.makeText(this, "To je marker id: " + marker.getId() + ", naslov: " + marker.getTitle(), Toast.LENGTH_LONG).show();
+	}
     
 //unutarnja klasa koja obraðuje klikove na navbar
     private class DrawerItemClickListener implements ListView.OnItemClickListener {
@@ -143,22 +160,23 @@ public class MainActivity extends ActionBarActivity {
             selectItem(position);
         }
     }
-		//klikovi na elemente ladice
-		private void selectItem(int position) {
-		
-		    // Oznaèi odabrani element i zatvori ladicu
-		    mDrawerLayout.closeDrawer(mDrawerList);
-		    
-		    //obradi dogaðaj
-		    switch(position){
-			    case 0:
-			    	startActivity(new Intent(this, Opis.class));
-			    	break;
-			    default:
-			    	Toast.makeText(this, "odabrana je stavka " + String.valueOf(position)+ " - " + mItems[position], Toast.LENGTH_LONG).show();
-			    	break;
-		    
-		    }	    
-		    
-		}
+    
+    //klikovi na elemente ladice
+    private void selectItem(int position) {
+
+    	// Oznaèi odabrani element i zatvori ladicu
+    	mDrawerLayout.closeDrawer(mDrawerList);
+
+    	//obradi dogaðaj
+    	switch(position){
+    	case 0:
+    		startActivity(new Intent(this, Opis.class));
+    		break;
+    	default:
+    		Toast.makeText(this, "odabrana je stavka " + String.valueOf(position)+ " - " + mItems[position], Toast.LENGTH_LONG).show();
+    		break;
+
+    	}	    
+
+    }
 }
