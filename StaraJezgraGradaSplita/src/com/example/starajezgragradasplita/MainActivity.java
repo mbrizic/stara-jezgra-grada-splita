@@ -15,10 +15,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.android.gms.maps.model.GroundOverlayOptions;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.mbrizic.starajezgragradasplita.R;
 
@@ -45,8 +42,8 @@ public class MainActivity extends ActionBarActivity {
         inicijalizirajNavigationDrawer();
 		
 		//Testni markeri
-		karta.dodajMarker(karta.koordinateCentraPalace, "Naslov markera", "tu se nalazi ovo i ono... ");
-		karta.dodajMarker(karta.koordinateSIRubaSlike, "Drugi marker", "ovo je inaèe SI rub slike");
+		karta.dodajMarker(karta.koordinateCentraPalace, "Prvi marker", "dotakni tu za više");
+		karta.dodajMarker(karta.koordinateSIRubaSlike, "Drugi marker", "dotakni tu za više");
     }
     
     @Override //ovo je za postavke
@@ -57,7 +54,8 @@ public class MainActivity extends ActionBarActivity {
         }
         
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_change_map) {
+        	karta.promjeniVrstuMape();
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -71,8 +69,9 @@ public class MainActivity extends ActionBarActivity {
         	karta.mapa = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
  
         	karta.postavi();        	
-        	karta.mapa.setOnMarkerClickListener(new OnMarkerClickListener()); //definiran dolje kao unutranja klasa
+        	karta.mapa.setOnInfoWindowClickListener(new OnInfoWindowClickListener()); //definiran dolje kao unutranja klasa
             
+        	
             if (karta.mapa == null) 
             	Toast.makeText(this, "Nešto je pošlo po krivu", Toast.LENGTH_LONG).show();            
     	}    	
@@ -80,7 +79,7 @@ public class MainActivity extends ActionBarActivity {
 
     private void inicijalizirajNavigationDrawer(){
     	
-    	mItems = new String[]{"Otvori aktivnost Opis", "Obièna mapa", "Transparentna", "test1"}; //inaèe koristit getResources().getStringArray(R.array.navbar);
+    	mItems = new String[]{"Obièna mapa", "Transparentna", "Promjeni podlogu", "test1"}; //inaèe koristit getResources().getStringArray(R.array.navbar);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
         
@@ -121,11 +120,11 @@ public class MainActivity extends ActionBarActivity {
     }
 
 
-	private class OnMarkerClickListener implements GoogleMap.OnMarkerClickListener{
+	private class OnInfoWindowClickListener implements GoogleMap.OnInfoWindowClickListener{
+		
 		@Override
-		public boolean onMarkerClick(Marker marker) {
-			handleMarkerClick(marker);
-			return false; //da obavi i standarni dogaðaj (prikaz tooltipa) uz hendlanje (true ako ne želiš to)
+		public void onInfoWindowClick(Marker marker) {
+			handleMarkerClick(marker);			
 		}			
 	}	
 
@@ -146,15 +145,16 @@ public class MainActivity extends ActionBarActivity {
     	//obradi dogaðaj
     	switch(position){
     	case 0:
-    		startActivity(new Intent(this, Opis.class));
-    		break;
-    	case 1:
     		karta.promjeniSloj(R.drawable.mapa, 0.3f);
     		Toast.makeText(this, "Postavljen obièan sloj", Toast.LENGTH_SHORT).show();
     		break;
-    	case 2:
-    		karta.promjeniSloj(R.drawable.mapa_transp, 0.3f);
+    	case 1:
+    		karta.promjeniSloj(R.drawable.mapa_transp, 0.0f);
     		Toast.makeText(this, "Postavljen transparentan sloj", Toast.LENGTH_SHORT).show();
+    		break;
+    	case 2:
+    		karta.promjeniVrstuMape();
+    		break;
     	default:
     		Toast.makeText(this, "odabrana je stavka " + String.valueOf(position)+ " - " + mItems[position], Toast.LENGTH_LONG).show();
     		break;
@@ -166,7 +166,11 @@ public class MainActivity extends ActionBarActivity {
 	//klikovi na markere
 	private void handleMarkerClick(Marker marker){
 		
-		Toast.makeText(this, "To je marker id: " + marker.getId() + ", naslov: " + marker.getTitle(), Toast.LENGTH_LONG).show();
-	
+		Intent namjera = new Intent(this, Opis.class);
+		
+		namjera.putExtra("markerId", marker.getId().substring(1));
+		namjera.putExtra("markerTitle", marker.getTitle());
+				
+		startActivity(namjera);
 	}
 }

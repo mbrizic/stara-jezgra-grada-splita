@@ -65,6 +65,15 @@ public class Karta{
 		sloj = mapa.addGroundOverlay(mapaPalace);
 	}
 	
+	public void promjeniVrstuMape(){
+		if(vrstaMape == GoogleMap.MAP_TYPE_HYBRID)
+			vrstaMape = GoogleMap.MAP_TYPE_NORMAL;			
+		else
+			vrstaMape = GoogleMap.MAP_TYPE_HYBRID;
+		
+		mapa.setMapType(vrstaMape);
+	}
+	
 	public void pomakni(LatLng koordinate, int zoom){
 		CameraPosition cameraPosition = new CameraPosition.Builder()
 											.target(koordinate)

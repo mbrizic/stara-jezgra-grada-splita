@@ -72,6 +72,8 @@ public class Opis extends ActionBarActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_opis);
         
+        dohvatiMarker();
+        
         //get the large image view
         picView = (ImageView) findViewById(R.id.picture); 
         //get the gallery view
@@ -238,5 +240,17 @@ public class Opis extends ActionBarActivity{
 		    return imageView;
 		}
 		 
+	}
+	
+	public void dohvatiMarker(){
+		Bundle podaci = getIntent().getExtras();
+		if (podaci != null){
+			String markerId = podaci.getString("markerId");
+			String markerTitle = podaci.getString("markerTitle");
+			
+			Toast.makeText(this, "Id: " + markerId + " -- " + markerTitle, Toast.LENGTH_LONG).show();
+		}
+		
+		
 	}
 }
