@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <palaca>
-    <lokacija>
+    <lokacija ime="prva probna lokaicija">
 	    <koordinate>1234</koordinate>
 	    <slika>http://adria.fesb.hr/~isoric/GIS/img019.jpg</slika>
 	    <slika>http://media.caranddriver.com/images/media/51/dissected-lotus-based-infiniti-emerg-e-sports-car-concept-top-image-photo-451994-s-original.jpg</slika>
