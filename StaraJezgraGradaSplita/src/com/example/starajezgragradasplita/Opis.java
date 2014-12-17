@@ -48,6 +48,8 @@ public class Opis extends ActionBarActivity {
         ActionBar actionBar = getActionBar();
     	actionBar.setDisplayHomeAsUpEnabled(true);
     	
+    	dohvatiMarker();
+    	
         opis = (TextView) findViewById(R.id.opis);
         
         picView = (ImageView) findViewById(R.id.bigPicture);
@@ -204,6 +206,16 @@ public class Opis extends ActionBarActivity {
 			int resourceId = res.getIdentifier(curLokacijaObj.getPanorama() , "drawable", getPackageName());
 			Drawable drawable = res.getDrawable(resourceId);
 			imgArray.get(indexImgView).setImageDrawable(drawable);
+		}
+	}
+	
+	public void dohvatiMarker(){
+		Bundle podaci = getIntent().getExtras();
+		if (podaci != null){
+			String markerId = podaci.getString("markerId");
+			String markerTitle = podaci.getString("markerTitle");
+			
+			Toast.makeText(this, "Id: " + markerId + " -- " + markerTitle, Toast.LENGTH_LONG).show();
 		}
 	}
 
