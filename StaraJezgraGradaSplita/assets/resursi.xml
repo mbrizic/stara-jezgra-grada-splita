@@ -74,4 +74,9 @@
 	    <opis>Otvoreni prostor pred ulazom u carev stan nazvan je Peristil. Nalazio se na glavnom kardinu (cardo), nekadašnje Dioklecijanove palače i u sjevernom se dijelu križao s njenim glavnimdekumanom (decumanus). S bočnih strana je omeđen s dva reda stupova u korintskom stilu povezanih međusobno lukovima. Bočne strane pročelja su bile ukrašene dvjema sfigama od kojih se jedna i dan-danas nalazi na trgu gotovo savršeno očuvana. Pročelje trga je podjeljeno u dva dijela: gornji vodi u Vestibul, a donji stepenicama u veličanstvenepodrume palače. Pročelje koje vodi u Vestibul bilo je ukrašeno s tri kipa od kojih je jedan predstavljao cara Dioklecijana, drugi boga Jupitera dok treći ostaje nepoznanica.</opis>
 	    <panorama>slika23</panorama>
     </lokacija>
+    <lokacija ime="Zgrada istočno od Mauzoleja">
+	    <naslov>Zgrada istočno od Mauzoleja</naslov>
+	    <opis>Antičku zgradu istočno od Mauzoleja karakterizira unutrašnje dvorište okruženo stupovima i trijemom, na čijem su se podu nalazila četiri mozaika različitih ukrasnih motiva. Funkcija te zgrade i njezin odnos s ostalim dijelovima palače do sada još nisu razjašnjeni, ali treba imati u vidu okolnost da je južnije od toga nalaza pronađen sklop istočnih termi.</opis>
+	    <slika>http://adria.fesb.hr/~isoric/GIS/slike/slika30.jpg</slika>
+    </lokacija>
 </palaca>
