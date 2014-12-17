@@ -1460,9 +1460,13 @@ containing a value of this type.
         public static final int ic_plusone_small_off_client=0x7f020075;
         public static final int ic_plusone_standard_off_client=0x7f020076;
         public static final int ic_plusone_tall_off_client=0x7f020077;
-        public static final int img019=0x7f020078;
-        public static final int powered_by_google_dark=0x7f020079;
-        public static final int powered_by_google_light=0x7f02007a;
+        public static final int powered_by_google_dark=0x7f020078;
+        public static final int powered_by_google_light=0x7f020079;
+        public static final int slika11=0x7f02007a;
+        public static final int slika18=0x7f02007b;
+        public static final int slika19=0x7f02007c;
+        public static final int slika2=0x7f02007d;
+        public static final int slika23=0x7f02007e;
     }
     public static final class id {
         public static final int action_bar=0x7f08002e;

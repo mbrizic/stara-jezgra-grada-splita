@@ -1,12 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <palaca>
-    <lokacija ime="prva probna lokaicija">
-	    <koordinate>1234</koordinate>
-	    <slika>http://adria.fesb.hr/~isoric/GIS/img019.jpg</slika>
-	    <slika>http://media.caranddriver.com/images/media/51/dissected-lotus-based-infiniti-emerg-e-sports-car-concept-top-image-photo-451994-s-original.jpg</slika>
-	    <slika>http://www.extremetech.com/wp-content/uploads/2012/12/Audi-A1.jpg</slika>
-	    <panorama>img019</panorama>
-	    <naslov>Probni naslov</naslov>
-	    <opis>Probni opis lokacija</opis>
+    <lokacija ime="Sjeverna vrata">
+	    <naslov>Sjeverna vrata</naslov>
+	    <opis>Sjeverna vrata predstavljala su glavni ulaz u palaču iz Salone te su zbog svog značaja u 16. st. prozvana „Zlatna vrata“. Ulaz u palaču branile su dvije osmerokutne kule neposredno uz vanjska vrata i unutrašnje obrambeno dorište (tzv. propugnakul), na kojem su se nalazila unutrašnja vrata. Sjeverna vrata jedan su od najsačuvanijih primjera svoje vrste u antičkom graditeljstvu.</opis>
+	    <slika>http://adria.fesb.hr/~isoric/GIS/slike/slika2a.jpg</slika>
+	    <slika>http://adria.fesb.hr/~isoric/GIS/slike/slika2b.jpg</slika>
+	    <panorama>slika2</panorama>
+    </lokacija>
+    <lokacija ime="Sjeverozapadna kula">
+	    <naslov>Sjeverozapadna kula</naslov>
+	    <opis>Ovo je najbolje sačuvana kula palače. Izvorni antički izgled građevine danas je sasvim poznat. Kula je tijekom vremena mijenjala svoju namjenu tako da je prizemlje bilo korišteno kao ranosrednjovjekovna crkva sv. Petra.</opis>
+	    <slika>http://adria.fesb.hr/~isoric/GIS/slike/slika3a.jpg</slika>
+	    <slika>http://adria.fesb.hr/~isoric/GIS/slike/slika3b.jpg</slika>
+    </lokacija>
+    <lokacija ime="Istočna vrata">
+	    <naslov>Istočna vrata</naslov>
+	    <opis>Istočna vrata, od 16. st. nazvana Srebrna vrata, u osnovi ponavljaju oblik Sjevernih vrata sa mnogo skromnijim ukrasnim elementima.  Vrata su branile dvije osmerokutne kule, a tkođer je postojalo i unutrašnje obrambeno dvorište (propugnakul).</opis>
+	    <slika>http://adria.fesb.hr/~isoric/GIS/slike/slika7a.jpg</slika>
+	    <slika>http://adria.fesb.hr/~isoric/GIS/slike/slika7b.jpg</slika>
+	    <slika>http://adria.fesb.hr/~isoric/GIS/slike/slika7c.jpg</slika>
+    </lokacija>
+    <lokacija ime="Jugoistočna kula">
+	    <naslov>Jugoistočna kula</naslov>
+	    <opis>Ugaone kule na južnoj strani Dioklecijanove palače imale su četiri etaže: prizemlje i tri kata. Bile su, dakle, za kat više od sjevernih ugaonih kula zbog nagiba terena od sjevera prema jugu. U samoj kuli nalazio se dio stana prvog splitskog nadbsikupa, koji mu je – prema kronici Tome Arhiđakona-ustupio Sever, jedan od predvodnika salonitanskih građana, što su se uselili u palaču.</opis>
+	    <slika>http://adria.fesb.hr/~isoric/GIS/slike/slika9.jpg</slika>
+    </lokacija>
+    <lokacija ime="Zapadna vrata">
+	    <naslov>Zapadna vrata</naslov>
+	    <opis>Zapadna ili „Željezna“ vrata predstavljala su zapadni ulaz u Dioklecijanovu palaču. Osmerokutne kule ovdje su više sačuvane od istočnih, a gotovo u cjelini ostalo je unutrašnje obrambeno dvorište (propugnakul) s unutrašnjim vratima.</opis>
+	    <slika>http://adria.fesb.hr/~isoric/GIS/slike/slika11a.jpg</slika>
+	    <slika>http://adria.fesb.hr/~isoric/GIS/slike/slika11b.jpg</slika>
+	    <slika>http://adria.fesb.hr/~isoric/GIS/slike/slika11c.jpg</slika>
+	    <panorama>slika11</panorama>
+    </lokacija>
+    <lokacija ime="Južna vrata">
+	    <naslov>Južna vrata</naslov>
+	    <opis>Prizemni dio južnog pročelja osvijetljavali su uski prozori i vrata po sredini, skromnija u usporedbi s kopnenim ulazima. Mala vrata služila su isključivo za carev pristup lađi, koja je tada mogla pristati blizu ulaza, jer se more prostiralo sve do zidova palače. Nasuprot tome, raskošni gornji kat odgovarao je dugom hodnjiku, koji je služio kao careva šetnica i istovremeno kao pristup drugim odajama Dioklecijanova stana.</opis>
+	    <slika>http://adria.fesb.hr/~isoric/GIS/slike/slika12.jpg</slika>
+    </lokacija>
+    <lokacija ime="Vestibul">
+	    <naslov>Vestibul</naslov>
+	    <opis>Vestibul je bio ulazna dvorana u Dioklecijanov stan. Izvana je nalik velikoj kocki, a unutra ima kružnu dvoranu, koja je bila urešena mramornim pločama. Na vrhu se nalazila kupola s mozaikom, a u nišama su bile skulpture.</opis>
+	    <slika>http://adria.fesb.hr/~isoric/GIS/slike/slika15a.jpg</slika>
+	    <slika>http://adria.fesb.hr/~isoric/GIS/slike/slika15b.jpg</slika>
+	    <slika>http://adria.fesb.hr/~isoric/GIS/slike/slika15c.jpg</slika>
+	    <slika>http://adria.fesb.hr/~isoric/GIS/slike/slika15d.jpg</slika>
+    </lokacija>
+    <lokacija ime="Mauzolej">
+	    <naslov>Mauzolej</naslov>
+	    <opis>Gradnjom svoje rezidencije u Dalmaciji car Dioklecijan je želio sebi osigurati ne samo mjesto posljednjeg boravišta nego i trajno počivalište. Radi toga je i njegov Mauzolej sadržajno jedna od najznačajnijih građevina palače, naglašena svojim položajem, volumenom i oblikom. Mauzolej je smješten unutar pravokutnog dvorišta ograđenog visokim zidom. </opis>
+	    <slika>http://adria.fesb.hr/~isoric/GIS/slike/slika26a.jpg</slika>
+	    <slika>http://adria.fesb.hr/~isoric/GIS/slike/slika26b.jpg</slika>
+	    <slika>http://adria.fesb.hr/~isoric/GIS/slike/slika26c.jpg</slika>
+	    <slika>http://adria.fesb.hr/~isoric/GIS/slike/slika26d.jpg</slika>
+    </lokacija>
+    <lokacija ime="Jupiterov hram">
+	    <naslov>Jupiterov hram</naslov>
+	    <opis>Jupiterov hram u Splitu je hram posvećen bogu Jupiteru, glavnom božanstvu starih Rimljana. Nalazi se u zapadnom dijeluDioklecijanove palače u neposrednoj blizini Peristila, centralnog trga carskog kompleksa. Sagrađen je krajem 3. stoljeća, u vrijeme gradnje carske palače, a vjerojatno već u 6. stoljeću posvećen je u krstionicu sv. Ivana Krstitelja. Pred samim ulazom u hram nalazi se jedna od dvanaest sfingi dopremljenih iz Egipta po naredbi cara Dioklecijana.</opis>
+	    <slika>http://adria.fesb.hr/~isoric/GIS/slike/slika27.jpg</slika>
+    </lokacija>
+    <lokacija ime="Blagovaonica">
+	    <naslov>Blagovaonica</naslov>
+	    <opis>Ovo mjesto oblika blagovaone naziva se u antičkoj arhitekturi triklinij, po nazivu ležaja (triclinium), što su se upotrebljavali prilikom blagovanja. Triklinij Dioklecijanove palače nalazio se po sredini istočnog dijela carevog stana. Zapremao je relativno veliku površinu u kojoj se nalazila velika sala, okružena sa trima manjim dvoranama i ulaznim prostorima.</opis>
+	    <panorama>slika18</panorama>
+    </lokacija>
+    <lokacija ime="Kriptoportik">
+	    <naslov>Kriptoportik</naslov>
+	    <opis>Hodnik, koji se pružao uzduž južnog zida u Dioklecijanovoj palači nazvan je kriptoportik. Imao je dvije osnovne fumkcije. U okviru sveukupnog rasporeda Dioklecijanova stana to je bio glavni komunikacijski prostor, kojem se prilazilo iz sredšnje dvorane i iz kojega se potom pristupalo svim drugim odajama na istočnoj i i zapadnoj strani stana. Istovremeno taj je prostor bez sumnje služio kao ugodna šetnica uza zid palače, iz koje se kroz neprekidni niz otvora pružao jedinstveni pogled na luku Aspalathosa i naobližnje otoke srednjodalmatinskog arhipelaga.</opis>
+	    <panorama>slika19</panorama>
+    </lokacija>
+    <lokacija ime="Peristil">
+	    <naslov>Peristil</naslov>
+	    <opis>Otvoreni prostor pred ulazom u carev stan nazvan je Peristil. Nalazio se na glavnom kardinu (cardo), nekadašnje Dioklecijanove palače i u sjevernom se dijelu križao s njenim glavnimdekumanom (decumanus). S bočnih strana je omeđen s dva reda stupova u korintskom stilu povezanih međusobno lukovima. Bočne strane pročelja su bile ukrašene dvjema sfigama od kojih se jedna i dan-danas nalazi na trgu gotovo savršeno očuvana. Pročelje trga je podjeljeno u dva dijela: gornji vodi u Vestibul, a donji stepenicama u veličanstvenepodrume palače. Pročelje koje vodi u Vestibul bilo je ukrašeno s tri kipa od kojih je jedan predstavljao cara Dioklecijana, drugi boga Jupitera dok treći ostaje nepoznanica.</opis>
+	    <panorama>slika23</panorama>
     </lokacija>
 </palaca>

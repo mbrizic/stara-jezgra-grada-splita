@@ -182,8 +182,6 @@ public class Opis extends ActionBarActivity {
 					if (tagname.equalsIgnoreCase("lokacija")) {
 						// ako je </lokacija> prekini s pretrazivanjem
 						pronadeno = false;
-					} else if (tagname.equalsIgnoreCase("koordinate")) {
-						curLokacijaObj.setKoordinate(curText);
 					} else if (tagname.equalsIgnoreCase("slika")) {
 						curLokacijaObj.setSlikaUrl(curText, indexSlika);
 						indexSlika++;
