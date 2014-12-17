@@ -23,8 +23,6 @@ import com.mbrizic.starajezgragradasplita.R;
 public class MainActivity extends ActionBarActivity {
 
 	private Karta karta;
-	private LatLng koordinateJZRubaSlike;
-	private LatLng koordinateSIRubaSlike;
 	
 	//stvari za navigation drawer (koji je nedovršen)
 	private String[] mItems;
