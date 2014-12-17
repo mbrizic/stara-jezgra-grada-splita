@@ -44,12 +44,21 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
             android:name="com.example.starajezgragradasplita.Opis"
             android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.starajezgragradasplita.Panorama"
+            android:label="@string/naslov_panorame" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

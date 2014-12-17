@@ -3,6 +3,9 @@
     <lokacija>
 	    <koordinate>1234</koordinate>
 	    <slika>http://adria.fesb.hr/~isoric/GIS/img019.jpg</slika>
+	    <slika>http://media.caranddriver.com/images/media/51/dissected-lotus-based-infiniti-emerg-e-sports-car-concept-top-image-photo-451994-s-original.jpg</slika>
+	    <slika>http://www.extremetech.com/wp-content/uploads/2012/12/Audi-A1.jpg</slika>
+	    <panorama>img019</panorama>
 	    <naslov>Probni naslov</naslov>
 	    <opis>Probni opis lokacija</opis>
     </lokacija>

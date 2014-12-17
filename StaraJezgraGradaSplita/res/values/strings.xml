@@ -7,9 +7,6 @@
     <string name="drawer_open">Open drawer</string>
     <string name="drawer_close">Close drawer</string>
     
-    <!-- za galeriju u klasi Opis -->
-    <string name="picture">Picture</string>
-	<string name="select_intro">Long-press a thumbnail to add an image</string>
-	<string name="show_intro">Press a thumbnail to display at larger size</string>
+    <string name="naslov_panorame">Panorama</string>
 
 </resources>

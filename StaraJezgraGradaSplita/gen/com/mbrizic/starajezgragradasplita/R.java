@@ -1460,8 +1460,9 @@ containing a value of this type.
         public static final int ic_plusone_small_off_client=0x7f020075;
         public static final int ic_plusone_standard_off_client=0x7f020076;
         public static final int ic_plusone_tall_off_client=0x7f020077;
-        public static final int powered_by_google_dark=0x7f020078;
-        public static final int powered_by_google_light=0x7f020079;
+        public static final int img019=0x7f020078;
+        public static final int powered_by_google_dark=0x7f020079;
+        public static final int powered_by_google_light=0x7f02007a;
     }
     public static final class id {
         public static final int action_bar=0x7f08002e;
@@ -1475,10 +1476,11 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f080028;
         public static final int action_menu_presenter=0x7f080029;
         public static final int action_mode_close_button=0x7f080036;
-        public static final int action_settings=0x7f080057;
+        public static final int action_settings=0x7f08005b;
         public static final int activity_chooser_view_content=0x7f080037;
         public static final int always=0x7f08001e;
         public static final int beginning=0x7f080023;
+        public static final int bigPicture=0x7f080058;
         public static final int book_now=0x7f080010;
         public static final int buyButton=0x7f08000a;
         public static final int buy_now=0x7f08000f;
@@ -1496,12 +1498,12 @@ containing a value of this type.
         public static final int end=0x7f080025;
         public static final int expand_activities_button=0x7f080038;
         public static final int expanded_menu=0x7f08003e;
-        public static final int gallery=0x7f080052;
         public static final int grayscale=0x7f080012;
         public static final int holo_dark=0x7f080005;
         public static final int holo_light=0x7f080006;
         public static final int home=0x7f080026;
         public static final int homeAsUp=0x7f080018;
+        public static final int horizontalScrollView1=0x7f080053;
         public static final int hybrid=0x7f080004;
         public static final int icon=0x7f08003c;
         public static final int ifRoom=0x7f08001d;
@@ -1516,13 +1518,18 @@ containing a value of this type.
         public static final int never=0x7f08001c;
         public static final int none=0x7f080000;
         public static final int normal=0x7f080001;
-        public static final int picture=0x7f080054;
+        public static final int opis=0x7f080059;
+        public static final int picture1=0x7f080054;
+        public static final int picture2=0x7f080055;
+        public static final int picture3=0x7f080056;
+        public static final int picture4=0x7f080057;
         public static final int production=0x7f080007;
         public static final int progress_circular=0x7f08002a;
         public static final int progress_horizontal=0x7f08002b;
         public static final int radio=0x7f080041;
         public static final int sandbox=0x7f080008;
         public static final int satellite=0x7f080002;
+        public static final int scrollView1=0x7f080052;
         public static final int search_badge=0x7f080044;
         public static final int search_bar=0x7f080043;
         public static final int search_button=0x7f080045;
@@ -1543,9 +1550,7 @@ containing a value of this type.
         public static final int submit_area=0x7f08004b;
         public static final int tabMode=0x7f080015;
         public static final int terrain=0x7f080003;
-        public static final int text=0x7f080056;
-        public static final int textView1=0x7f080053;
-        public static final int textView2=0x7f080055;
+        public static final int text=0x7f08005a;
         public static final int title=0x7f08003d;
         public static final int top_action_bar=0x7f080032;
         public static final int up=0x7f080033;
@@ -1761,11 +1766,7 @@ containing a value of this type.
         public static final int drawer_close=0x7f060034;
         public static final int drawer_open=0x7f060033;
         public static final int hello_world=0x7f060031;
-        /**  za galeriju u klasi Opis 
-         */
-        public static final int picture=0x7f060035;
-        public static final int select_intro=0x7f060036;
-        public static final int show_intro=0x7f060037;
+        public static final int naslov_panorame=0x7f060035;
         public static final int store_picture_message=0x7f060001;
         public static final int store_picture_title=0x7f060000;
         /**  Text on a placeholder buy button when Google Play services is not
@@ -3552,25 +3553,6 @@ containing a value of this type.
           @attr name android:windowAnimationStyle
         */
         public static final int MenuView_android_windowAnimationStyle = 0;
-        /** Attributes that can be used with a PicGallery.
-           <p>Includes the following attributes:</p>
-           <table>
-           <colgroup align="left" />
-           <colgroup align="left" />
-           <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #PicGallery_android_galleryItemBackground android:galleryItemBackground}</code></td><td></td></tr>
-           </table>
-           @see #PicGallery_android_galleryItemBackground
-         */
-        public static final int[] PicGallery = {
-            0x0101004c
-        };
-        /**
-          <p>This symbol is the offset where the {@link android.R.attr#galleryItemBackground}
-          attribute's value can be found in the {@link #PicGallery} array.
-          @attr name android:galleryItemBackground
-        */
-        public static final int PicGallery_android_galleryItemBackground = 0;
         /** Attributes that can be used with a SearchView.
            <p>Includes the following attributes:</p>
            <table>
