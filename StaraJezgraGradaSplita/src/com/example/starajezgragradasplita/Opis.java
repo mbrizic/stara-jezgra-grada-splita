@@ -20,6 +20,7 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.mbrizic.starajezgragradasplita.R;
 
 
@@ -39,6 +40,9 @@ public class Opis extends ActionBarActivity {
 	int indexImgView=0;
 	// Objekt kojim se dohvacaju elementi klase Lokacija
 	Lokacija curLokacijaObj = null;
+	
+	String markerId;
+	String markerTitle;
 	
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -212,8 +216,8 @@ public class Opis extends ActionBarActivity {
 	public void dohvatiMarker(){
 		Bundle podaci = getIntent().getExtras();
 		if (podaci != null){
-			String markerId = podaci.getString("markerId");
-			String markerTitle = podaci.getString("markerTitle");
+			markerId = podaci.getString("markerId");
+			markerTitle = podaci.getString("markerTitle");
 			
 			Toast.makeText(this, "Id: " + markerId + " -- " + markerTitle, Toast.LENGTH_LONG).show();
 		}

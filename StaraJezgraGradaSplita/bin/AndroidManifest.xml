@@ -3,7 +3,6 @@
     package="com.mbrizic.starajezgragradasplita"
     android:versionCode="1"
     android:versionName="1.0"
-    android:configChanges="orientation|keyboardHidden"
       >
       <!-- configChanges je za galeriju u klasi Opis -->
     
