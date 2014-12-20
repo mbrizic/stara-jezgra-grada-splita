@@ -14,6 +14,7 @@ import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -221,6 +222,7 @@ public class Opis extends ActionBarActivity {
 		// Postavljenje velike slike na prvu malu
 		BitmapWorkerTask task = new BitmapWorkerTask(picView);
 		task.execute(curLokacijaObj.getSlikaUrl(0));
+		
 
 		// Postavljanje panorame na zadnje mjesto malih slika
 		if (!curLokacijaObj.getPanorama().isEmpty() && indexImgView <= imgArray.size()) {

@@ -40,8 +40,8 @@ public class MainActivity extends ActionBarActivity {
         inicijalizirajNavigationDrawer();
 		
 		//Testni markeri
-		karta.dodajMarker(karta.koordinateCentraPalace, "Prvi marker", "dotakni tu za više");
-		karta.dodajMarker(karta.koordinateSIRubaSlike, "Drugi marker", "dotakni tu za više");
+		karta.dodajMarker(karta.koordinateCentraPalace, "Sjeverna vrata", "dotakni tu za više");
+		karta.dodajMarker(karta.koordinateSIRubaSlike, "Sjeverozapadna kula", "dotakni tu za više");
     }
     
     @Override //ovo je za postavke
