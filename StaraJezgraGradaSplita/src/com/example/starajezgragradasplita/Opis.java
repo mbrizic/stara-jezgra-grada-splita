@@ -225,6 +225,8 @@ public class Opis extends ActionBarActivity {
 		
 
 		// Postavljanje panorame na zadnje mjesto malih slika
+		// Misto di se javlja error
+		Toast.makeText(getApplicationContext(),	"Tu je greska", Toast.LENGTH_LONG).show();
 		if (!curLokacijaObj.getPanorama().isEmpty() && indexImgView <= imgArray.size()) {
 			Resources res = getResources();
 			int resourceId = res.getIdentifier(curLokacijaObj.getPanorama(), "drawable", getPackageName());
