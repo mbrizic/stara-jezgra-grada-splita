@@ -33,4 +33,10 @@ public class Panorama extends ActionBarActivity {
 		finish();
 		return true;
 	}
+	
+	@Override
+	protected void onStop() {
+	    super.onStop();
+	    finish();
+	}
 }

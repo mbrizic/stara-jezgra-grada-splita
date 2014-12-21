@@ -69,8 +69,7 @@ public class Opis extends ActionBarActivity {
 		// Omogucavanje da se klikom mala slika otvori u velikoj
 		imgArray.get(0).setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				if (!curLokacijaObj.getPanorama().isEmpty()
-						&& indexImgView == 0) {
+				if (!curLokacijaObj.isPanoramaEmpty() && indexImgView == 0) {
 					pozivKlasePanorama();
 				} else
 					picView.setImageDrawable(picView1.getDrawable());
@@ -78,8 +77,7 @@ public class Opis extends ActionBarActivity {
 		});
 		imgArray.get(1).setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				if (!curLokacijaObj.getPanorama().isEmpty()
-						&& indexImgView == 1) {
+				if (!curLokacijaObj.isPanoramaEmpty() && indexImgView == 1) {
 					pozivKlasePanorama();
 				} else
 					picView.setImageDrawable(picView2.getDrawable());
@@ -87,8 +85,7 @@ public class Opis extends ActionBarActivity {
 		});
 		imgArray.get(2).setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				if (!curLokacijaObj.getPanorama().isEmpty()
-						&& indexImgView == 2) {
+				if (!curLokacijaObj.isPanoramaEmpty() && indexImgView == 2) {
 					pozivKlasePanorama();
 				} else
 					picView.setImageDrawable(picView3.getDrawable());
@@ -96,8 +93,7 @@ public class Opis extends ActionBarActivity {
 		});
 		imgArray.get(3).setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				if (!curLokacijaObj.getPanorama().isEmpty()
-						&& indexImgView == 3) {
+				if (!curLokacijaObj.isPanoramaEmpty() && indexImgView == 3) {
 					pozivKlasePanorama();
 				} else
 					picView.setImageDrawable(picView4.getDrawable());
@@ -215,8 +211,7 @@ public class Opis extends ActionBarActivity {
 
 		// Postavljanje malih slika
 		for (indexImgView = 0; indexImgView < curLokacijaObj.getSlikaIndex(); indexImgView++) {
-			BitmapWorkerTask task = new BitmapWorkerTask(
-					imgArray.get(indexImgView));
+			BitmapWorkerTask task = new BitmapWorkerTask(imgArray.get(indexImgView));
 			task.execute(curLokacijaObj.getSlikaUrl(indexImgView));
 		}
 		// Postavljenje velike slike na prvu malu
@@ -225,9 +220,7 @@ public class Opis extends ActionBarActivity {
 		
 
 		// Postavljanje panorame na zadnje mjesto malih slika
-		// Misto di se javlja error
-		Toast.makeText(getApplicationContext(),	"Tu je greska", Toast.LENGTH_LONG).show();
-		if (!curLokacijaObj.getPanorama().isEmpty() && indexImgView <= imgArray.size()) {
+		if (!curLokacijaObj.isPanoramaEmpty()&& indexImgView <= imgArray.size()) {
 			Resources res = getResources();
 			int resourceId = res.getIdentifier(curLokacijaObj.getPanorama(), "drawable", getPackageName());
 			Drawable drawable = res.getDrawable(resourceId);
@@ -249,5 +242,11 @@ public class Opis extends ActionBarActivity {
 				MainActivity.class);
 		startActivityForResult(myIntent, 0);
 		return true;
+	}
+	
+	@Override
+	protected void onStop() {
+	    super.onStop();
+	    finish();
 	}
 }

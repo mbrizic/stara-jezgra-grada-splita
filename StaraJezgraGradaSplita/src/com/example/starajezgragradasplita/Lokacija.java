@@ -3,7 +3,7 @@ package com.example.starajezgragradasplita;
 class Lokacija {
 
 	private String[] slikaUrl = new String[3];
-	private String panorama;
+	private String panorama = "";
 	private String naslov;
 	private String opis;
 
@@ -25,6 +25,13 @@ class Lokacija {
 
 	public void setPanorama(String panorama) {
 		this.panorama = panorama;
+	}
+	
+	public boolean isPanoramaEmpty() {
+		if(this.panorama.equals(""))
+			return true;
+		else
+			return false;
 	}
 
 	public String getNaslov() {
