@@ -17,6 +17,8 @@ import com.mbrizic.starajezgragradasplita.R;
 
 public class Karta{
 	
+	//TEST TEST
+	
 	GoogleMap mapa;
 	private Polyline linija;
 	private int vrstaMape;
