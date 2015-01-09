@@ -1,5 +1,6 @@
 package com.example.starajezgragradasplita;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -9,12 +10,13 @@ import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 
 import android.app.ActionBar;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences.Editor;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -41,6 +43,9 @@ public class Opis extends ActionBarActivity {
 	// Objekt kojim se dohvacaju elementi klase Lokacija
 	Lokacija curLokacijaObj = null;
 
+	// lokacijaPostoji = true -> lokacija postoji u XML datoteci
+	boolean lokacijaPostoji;
+
 	String markerTitle;
 
 	@Override
@@ -54,17 +59,49 @@ public class Opis extends ActionBarActivity {
 		dohvatiMarker();
 
 		opis = (TextView) findViewById(R.id.opis);
+		
+		// Postavljanje svih stvari da se otvori resursi.xml i pozove funkcija
+		// za parsiranje xml-a -> parseXML(parser)
+		XmlPullParserFactory pullParserFactory;
+		try {
+			pullParserFactory = XmlPullParserFactory.newInstance();
+			XmlPullParser parser = pullParserFactory.newPullParser();
 
+			InputStream in_s = getApplicationContext().getAssets().open("resursi.xml");
+			parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
+			parser.setInput(in_s, null);
+
+			parseXML(parser);
+
+			in_s.close();
+
+		} catch (XmlPullParserException e) {
+			Toast.makeText(getApplicationContext(), "Greska u otvaranju resursi.xml", Toast.LENGTH_LONG).show();
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+			Toast.makeText(getApplicationContext(),	"Greska u otvaranju resursi.xml", Toast.LENGTH_LONG).show();
+		}
+		
+		
 		picView = (ImageView) findViewById(R.id.bigPicture);
-		picView1 = (ImageView) findViewById(R.id.picture1);
-		picView2 = (ImageView) findViewById(R.id.picture2);
-		picView3 = (ImageView) findViewById(R.id.picture3);
-		picView4 = (ImageView) findViewById(R.id.picture4);
-
-		imgArray.add(picView1);
-		imgArray.add(picView2);
-		imgArray.add(picView3);
-		imgArray.add(picView4);
+			
+		if(curLokacijaObj.getSlikaIndex() >= 0 || !curLokacijaObj.isPanoramaEmpty()) {
+			picView1 = (ImageView) findViewById(R.id.picture1);
+			imgArray.add(picView1);
+		}
+		if(curLokacijaObj.getSlikaIndex() >= 1 || !curLokacijaObj.isPanoramaEmpty()) {
+			picView2 = (ImageView) findViewById(R.id.picture2);
+			imgArray.add(picView2);
+		}
+		if(curLokacijaObj.getSlikaIndex() >= 2 || !curLokacijaObj.isPanoramaEmpty()) {
+			picView3 = (ImageView) findViewById(R.id.picture3);
+			imgArray.add(picView3);
+		}
+		if(curLokacijaObj.getSlikaIndex() == 3 || !curLokacijaObj.isPanoramaEmpty()) {
+			picView4 = (ImageView) findViewById(R.id.picture4);
+			imgArray.add(picView4);
+		}
 
 		// Omogucavanje da se klikom mala slika otvori u velikoj
 		imgArray.get(0).setOnClickListener(new OnClickListener() {
@@ -100,28 +137,9 @@ public class Opis extends ActionBarActivity {
 			}
 		});
 
-		// Postavljanje svih stvari da se otvori resursi.xml i pozove funkcija
-		// za parsiranje xml-a -> parseXML(parser)
-		XmlPullParserFactory pullParserFactory;
-		try {
-			pullParserFactory = XmlPullParserFactory.newInstance();
-			XmlPullParser parser = pullParserFactory.newPullParser();
-
-			InputStream in_s = getApplicationContext().getAssets().open("resursi.xml");
-			parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
-			parser.setInput(in_s, null);
-
-			parseXML(parser);
-
-			in_s.close();
-
-		} catch (XmlPullParserException e) {
-			Toast.makeText(getApplicationContext(), "Greska u otvaranju resursi.xml", Toast.LENGTH_LONG).show();
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-			Toast.makeText(getApplicationContext(),	"Greska u otvaranju resursi.xml", Toast.LENGTH_LONG).show();
-		}
+		// Ako postoji lokacija u XML datoteci onda prikazi njen sadrzaj
+		if(lokacijaPostoji)
+			prikaziLokaciju(curLokacijaObj);
 	}
 
 	/*
@@ -147,8 +165,8 @@ public class Opis extends ActionBarActivity {
 		
 		// pronadeno = true -> trenutno se obraduje lokacija
 		boolean pronadeno = false;
-		// lokacijaPostoji = true -> lokacija postoji u XML datoteci
-		boolean lokacijaPostoji = false;
+		
+		lokacijaPostoji = false;
 
 		while (eventType != XmlPullParser.END_DOCUMENT) {
 			String tagname = parser.getName();
@@ -198,10 +216,6 @@ public class Opis extends ActionBarActivity {
 			}
 			eventType = parser.next();
 		}
-
-		// Ako postoji lokacija u XML datoteci onda prikazi njen sadrzaj
-		if(lokacijaPostoji)
-			prikaziLokaciju(curLokacijaObj);
 	}
 
 	// Funkcija za prikaz sadrzaja lokacije na ekran
@@ -241,6 +255,7 @@ public class Opis extends ActionBarActivity {
 		Intent myIntent = new Intent(getApplicationContext(),
 				MainActivity.class);
 		startActivityForResult(myIntent, 0);
+	    finish();
 		return true;
 	}
 	
