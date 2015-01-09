@@ -234,7 +234,7 @@ public class Opis extends ActionBarActivity {
 		
 
 		// Postavljanje panorame na zadnje mjesto malih slika
-		if (!curLokacijaObj.isPanoramaEmpty()&& indexImgView <= imgArray.size()) {
+		if (!curLokacijaObj.isPanoramaEmpty() && indexImgView < imgArray.size()) {
 			Resources res = getResources();
 			int resourceId = res.getIdentifier(curLokacijaObj.getPanorama(), "drawable", getPackageName());
 			Drawable drawable = res.getDrawable(resourceId);

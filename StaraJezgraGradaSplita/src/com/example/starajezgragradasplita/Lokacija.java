@@ -2,7 +2,7 @@ package com.example.starajezgragradasplita;
 
 class Lokacija {
 
-	private String[] slikaUrl = new String[3];
+	private String[] slikaUrl = new String[4];
 	private String panorama = "";
 	private String naslov;
 	private String opis;
@@ -16,7 +16,8 @@ class Lokacija {
 	}
 
 	public int getSlikaIndex() {
-		return slikaUrl.length;
+		int temp = slikaUrl.length;
+		return --temp;
 	}
 
 	public String getPanorama() {

@@ -42,10 +42,8 @@
 
                     <ImageView
                         android:id="@+id/picture4"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:maxHeight="150dp"
-                        android:maxWidth="200dp" />
+                        android:layout_width="200dp"
+                        android:layout_height="150dp" />
                 </LinearLayout>
             </HorizontalScrollView>
 
