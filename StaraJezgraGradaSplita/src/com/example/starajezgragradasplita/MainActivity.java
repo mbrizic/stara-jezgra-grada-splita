@@ -29,6 +29,9 @@ public class MainActivity extends ActionBarActivity {
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
     private ListView mDrawerList;
+    
+    private LatLng[] koordinateLokacija;
+    private String[] imenaLokacija;
 		
 	
     @Override
@@ -38,11 +41,47 @@ public class MainActivity extends ActionBarActivity {
        
 		inicijalizirajMapu();
         inicijalizirajNavigationDrawer();
+        
+        koordinateLokacija = new LatLng[]{
+        		new LatLng(43.509298, 16.440778), // sj vrata
+        		new LatLng(43.509559, 16.439833), // sz kula
+        		new LatLng(43.508125, 16.441258), // ist vrata
+        		new LatLng(43.507156, 16.440795), // ji kula
+        		new LatLng(43.508778, 16.439190), // zap vrata
+        		new LatLng(43.507424, 16.439698), // juž vrata
+        		new LatLng(43.507926, 16.439969), // vestibul
+        		new LatLng(43.508085, 16.440432), // mauzolej
+        		new LatLng(43.508288, 16.439656), // jupiterov
+        		new LatLng(43.507597, 16.440360), // blagovaonica
+        		new LatLng(43.507551, 16.440129), // kriptoportik
+        		new LatLng(43.508132, 16.440154), // peristil
+        		new LatLng(43.508091, 16.440757) // istoèno od mauzolej        		
+        };
+        
+        imenaLokacija = new String[]{        		
+        		"Sjeverna vrata", 
+        		"Sjeverozapadna kula",
+        		"Istoèna vrata", 
+        		"Jugoistoèna kula", 
+        		"Zapadna vrata" , 
+        		"Južna vrata", 
+        		"Vestibul", 
+        		"Mauzolej", 
+        		"Jupiterov hram", 
+        		"Blagovaonica", 
+        		"Kriptoportik", 
+        		"Peristil", 
+        		"Zgrada istoèno od Mauzoleja"
+        };
+        
+        for(int i=0; i<13; i++){
+        	karta.dodajMarker(koordinateLokacija[i], imenaLokacija[i], "dotakni tu za više");
+        }
 		
 		//Testni markeri
-		karta.dodajMarker(karta.koordinateCentraPalace, "Istoèna vrata", "dotakni tu za više"); 
-		karta.dodajMarker(karta.koordinateSIRubaSlike, "Jugoistoèna kula", "dotakni tu za više");
-		karta.dodajMarker(karta.koordinateJZRubaSlike, "Zapadna vrata", "dotakni tu za više");
+	//	karta.dodajMarker(karta.koordinateCentraPalace, "Istoèna vrata", "dotakni tu za više"); 
+		//karta.dodajMarker(karta.koordinateSIRubaSlike, "Jugoistoèna kula", "dotakni tu za više");
+		//karta.dodajMarker(karta.koordinateJZRubaSlike, "Zapadna vrata", "dotakni tu za više");
     }
     
     @Override //ovo je za postavke
@@ -167,7 +206,6 @@ public class MainActivity extends ActionBarActivity {
 		
 		Intent namjera = new Intent(this, Opis.class);
 		
-		namjera.putExtra("markerId", marker.getId().substring(1));
 		namjera.putExtra("markerTitle", marker.getTitle());
 				
 		startActivity(namjera);
