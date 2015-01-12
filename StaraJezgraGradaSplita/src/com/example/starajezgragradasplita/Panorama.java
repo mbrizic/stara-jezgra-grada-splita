@@ -25,18 +25,12 @@ public class Panorama extends ActionBarActivity {
 
 		TouchImageView img = new TouchImageView(this);
 		img.setImageResource(resourceId);
-		img.setMaxZoom(4f);
+		img.setMaxZoom(15f);
 		setContentView(img);
 	}
 
 	public boolean onOptionsItemSelected(MenuItem item) {
 		finish();
 		return true;
-	}
-	
-	@Override
-	protected void onStop() {
-	    super.onStop();
-	    finish();
 	}
 }
