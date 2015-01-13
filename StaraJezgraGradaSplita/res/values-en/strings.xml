@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Diocletian\'s Palace</string>
+    
+    <string name="action_settings">Settings</string>
+    <string name="action_change_map">Change Map UI</string>
+    
+    <string name="tap_for_more">Tap here for more info</string>
+    
+    <string name="drawer_open">Open drawer</string>
+    <string name="drawer_close">Close drawer</string>
+    
+    <string name="naslov_panorame">Panorama</string>
+
+    
+    <string-array name="navigation_items">
+        <item>Show ground locations</item>
+        <item>Show basement rooms</item>
+        <item>Change background</item>
+		<item>test</item>       
+    </string-array>    
+    
+    
+    <!--  Those are displayed as Toast messages: -->
+    <string name="toast_ground_checked">Now showing ground locations</string>
+    <string name="toast_basements_checked">Now showing basement rooms</string>
+    
+    
+    <!-- Errors -->
+    <string name="map_error">Something went wrong</string>
+   
+</resources>
