@@ -2,12 +2,32 @@
 <resources>
 
     <string name="app_name">Dioklecijanova palača</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
-    <string name="action_change_map">Change Map UI</string>
-    <string name="drawer_open">Open drawer</string>
-    <string name="drawer_close">Close drawer</string>
+    
+    <string name="action_settings">Postavke</string>
+    <string name="action_change_map">Promijeni mapu</string>
+    
+    <string name="tap_for_more">Dotakni tu za više informacija</string>
+        
+    <string name="drawer_open">Otvori izbornik</string>
+    <string name="drawer_close">Zatvori izbornik</string>
     
     <string name="naslov_panorame">Panorama</string>
+    
+    
+    <string-array name="navigation_items">
+        <item>Prikaži lokacije na površini</item>
+        <item>Prikaži podrume</item>
+        <item>Promjeni podlogu</item>
+		<item>test</item>       
+    </string-array>   
+    
+    
+    <!--  Those are displayed as Toast messages: -->
+    <string name="toast_ground_checked">Prikazuju se lokacije na površini</string>
+    <string name="toast_basements_checked">Prikazuju se prostorije u podrumima</string>
+    
+    
+    <!-- Errors -->
+    <string name="map_error">Nešto je pošlo po krivu</string>
 
 </resources>

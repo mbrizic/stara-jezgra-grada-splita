@@ -74,14 +74,17 @@ public class MainActivity extends ActionBarActivity {
         		"Zgrada istoèno od Mauzoleja"
         };
         
-        for(int i=0; i<13; i++){
-        	karta.dodajMarker(koordinateLokacija[i], imenaLokacija[i], "dotakni tu za više");
-        }
-		
-		//Testni markeri
-	//	karta.dodajMarker(karta.koordinateCentraPalace, "Istoèna vrata", "dotakni tu za više"); 
-		//karta.dodajMarker(karta.koordinateSIRubaSlike, "Jugoistoèna kula", "dotakni tu za više");
-		//karta.dodajMarker(karta.koordinateJZRubaSlike, "Zapadna vrata", "dotakni tu za više");
+        
+        nacrtajMarkere(imenaLokacija, koordinateLokacija); //poslije ubaciti i nizeve imenaPodruma i koodinatePodruma
+
+    }
+    
+    public void nacrtajMarkere(String[] imena, LatLng[] koordinate){
+    	String dotakniZaVise = getResources().getString(R.string.tap_for_more);
+    	
+    	for(int i=0; i<13; i++){
+    		karta.dodajMarker(koordinate[i], imena[i], dotakniZaVise);
+    	}
     }
     
     @Override //ovo je za postavke
@@ -110,14 +113,16 @@ public class MainActivity extends ActionBarActivity {
         	karta.mapa.setOnInfoWindowClickListener(new OnInfoWindowClickListener()); //definiran dolje kao unutranja klasa
             
         	
-            if (karta.mapa == null) 
-            	Toast.makeText(this, "Nešto je pošlo po krivu", Toast.LENGTH_LONG).show();            
+            if (karta.mapa == null){ 
+            	String errorMessage = getResources().getString(R.string.map_error);
+            	Toast.makeText(this, errorMessage, Toast.LENGTH_LONG).show();
+            }            
     	}    	
     }
 
     private void inicijalizirajNavigationDrawer(){
     	
-    	mItems = new String[]{"Obièna mapa", "Transparentna", "Promjeni podlogu", "test1"}; //inaèe koristit getResources().getStringArray(R.array.navbar);
+    	mItems = getResources().getStringArray(R.array.navigation_items);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
         
@@ -179,16 +184,20 @@ public class MainActivity extends ActionBarActivity {
     private void selectItem(int position) {
 
     	mDrawerLayout.closeDrawer(mDrawerList); //zatvori ladicu
+    	
+    	String poruka;
 
     	//obradi dogaðaj
     	switch(position){
     	case 0:
-    		karta.promjeniSloj(R.drawable.mapa, 0.3f);
-    		Toast.makeText(this, "Postavljen obièan sloj", Toast.LENGTH_SHORT).show();
+    		nacrtajMarkere(imenaLokacija, koordinateLokacija);
+    		poruka = getResources().getString(R.string.toast_ground_checked);
+    		Toast.makeText(this, poruka, Toast.LENGTH_SHORT).show();
     		break;
     	case 1:
-    		karta.promjeniSloj(R.drawable.mapa_transp, 0.0f);
-    		Toast.makeText(this, "Postavljen transparentan sloj", Toast.LENGTH_SHORT).show();
+    		nacrtajMarkere(imenaLokacija, koordinateLokacija);
+    		poruka = getResources().getString(R.string.toast_basements_checked);
+    		Toast.makeText(this, poruka, Toast.LENGTH_SHORT).show();
     		break;
     	case 2:
     		karta.promjeniVrstuMape();
