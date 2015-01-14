@@ -79,4 +79,56 @@
 	    <opis>Antičku zgradu istočno od Mauzoleja karakterizira unutrašnje dvorište okruženo stupovima i trijemom, na čijem su se podu nalazila četiri mozaika različitih ukrasnih motiva. Funkcija te zgrade i njezin odnos s ostalim dijelovima palače do sada još nisu razjašnjeni, ali treba imati u vidu okolnost da je južnije od toga nalaza pronađen sklop istočnih termi.</opis>
 	    <slika>http://adria.fesb.hr/~isoric/GIS/slike/slika30.jpg</slika>
     </lokacija>
+    <!-- Podrumi -->
+    <lokacija ime="Drvene grede">
+	    <naslov>Drvene grede</naslov>
+	    <opis>Drvene grede otkrivene ispod podne razine supstrukcija palače.
+(Period: vjerojatno 295.- 305. godine po Kr.)</opis>
+	    <slika>http://adria.fesb.hr/~isoric/GIS/slike/Podrumi/2C.jpg</slika>
+    </lokacija>
+    <lokacija ime="Sarkofag">
+	    <naslov>Sarkofag</naslov>
+	    <opis>Nalaz potječe s područja Dioklecijanove palače, a moguće je i korišten i u sekundarnoj uporabi.
+(Period: od polovice 4. stoljeća nadalje)</opis>
+	    <slika>http://adria.fesb.hr/~isoric/GIS/slike/Podrumi/2D.jpg</slika>
+    </lokacija>
+    <lokacija ime="Tijesak za proizvodnju maslinovog ulja">
+	    <naslov>Tijesak za proizvodnju maslinovog ulja</naslov>
+	    <opis>Tijesak (sustav) za proizvodnju maslinovog ulja pronađen na podnoj razini iznad antičke faze, kad u srednjovjekovnom razdoblju supstrukcije palače dobivaju nove namjene.
+(Period: srednjovjekovno razdoblje)</opis>
+	    <slika>http://adria.fesb.hr/~isoric/GIS/slike/Podrumi/3D.jpg</slika>
+	    <slika>http://adria.fesb.hr/~isoric/GIS/slike/Podrumi/3Da.jpg</slika>
+    </lokacija>
+    <lokacija ime="Mala dvorana">
+	    <naslov>Mala dvorana</naslov>
+	    <opis>Zapadno od glavne prijamne dvorane nalazila se jedna nešto manja odaja, također s eksedrom na sjevernoj strani, koja je bila sastavni dio istoga prijamnog sklopa. Njezini zidovi u znatnom su dijelu ostali sačuvani i u gornjem katu, uključujući i eksedru, kao i ostatke niša na bočnim zidovima.</opis>
+	    <panorama>slika4</panorama>
+    </lokacija>
+    <lokacija ime="Velika dvorana">
+	    <naslov>Velika dvorana</naslov>
+	    <opis>U rezidenciji vladajućeg cara taj bi se prostor smatrao prijestolnom dvoranom. Iako u splitskoj Dioklecijanovoj palači to nije bio slučaj, ona je položajem i oblikom identificirana kao glavna dvorana stana umirovljenoga cara, koja je pružala dostojan arhitektonski okvir bivšem vladaru, okruženom pažnjom i počastima. Konstrukcija dvorane ima oblik trobrodne dvorane s polukružnom eksedrom na sjevernoj strani. S jedne i druge strane eksedre nalazilo se po jedno spiralno četverokrako stubište kojim se moglo komunicirati s gornjim prostorom.  Od same dvorane u gornjem katu su ostali skromni ostaci.</opis>
+	    <panorama>slika6</panorama>
+    </lokacija>
+    <lokacija ime="Tablinum">
+	    <naslov>Tablinum</naslov>
+	    <opis>Funkcija ove dvorane uzdužnog tlocrta proizlazi iz središnjega položaja unutar stana kao dijela aksijalnog ceremonijalnog sklopa kojim je počasna garda vodila posjetitelje k carevim odajama na zapadnom području carske rezidencije. Dva reda od četiri pilona davali su odgovarajućoj prizemnoj središnjoj dvorani izgled trobrodnoga prostora. Takva je konstrukcija bila potrebna zbog izgradnje unakrsnih bačvastih svodova koji su nosili gornji kat.</opis>
+	    <slika>http://adria.fesb.hr/~isoric/GIS/slike/Podrumi/11A.jpg</slika>
+    </lokacija>
+    <lokacija ime="Nimfej">
+	    <naslov>Nimfej</naslov>
+	    <opis>Ostaci kultnog mjesta – nymphaeum. 
+[ Nimfej (grč. nymphaion) - starogrč. svetište posvećeno nimfama. U rim. doba raskošna fontana ili dio kupališta ]</opis>
+	    <panorama>slika15</panorama>
+    </lokacija>
+    <lokacija ime="Triklinij">
+	    <naslov>Triklinij</naslov>
+	    <opis>Blagovaonicu u rimskim kućama i palačama nazvana je triclinium, pa je tim terminom nazvano i središnje područje istočne polovice Dioklecijanova stana, utvrđeno kao blagovaonica. Dioklecijanov je triklinij zapremao veliku površinu, a obuhvaćao je središnju salu vanjskoga četvrtastog i unutrašnjega osmerokutnog tlocrta, raščlanjenu s četiri polukružne niše.</opis>
+	    <panorama>slika17</panorama>
+    </lokacija>
+    <lokacija ime="Dijelovi kamenih cijevi antičke kanalizacije ">
+	    <naslov>Dijelovi kamenih cijevi antičke kanalizacije </naslov>
+	    <opis>Dijelovi kamenih cijevi antičke kanalizacije 
+Period: 295. - 305. godine po Kr.</opis>
+	    <slika>http://adria.fesb.hr/~isoric/GIS/slike/Podrumi/juzno_od_4A.jpg</slika>
+    </lokacija>
 </palaca>
