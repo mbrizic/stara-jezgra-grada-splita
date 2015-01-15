@@ -31,7 +31,9 @@ public class MainActivity extends ActionBarActivity {
     private ListView mDrawerList;
     
     private LatLng[] koordinateLokacija;
+    private LatLng[] koordinatePodruma;
     private String[] imenaLokacija;
+    private String[] imenaPodruma;
 		
 	
     @Override
@@ -59,47 +61,41 @@ public class MainActivity extends ActionBarActivity {
         };
         
         imenaLokacija = new String[]{        		
-        		"Sjeverna vrata", 
-        		"Sjeverozapadna kula",
-        		"Istoèna vrata", 
-        		"Jugoistoèna kula", 
-        		"Zapadna vrata" , 
-        		"Južna vrata", 
-        		"Vestibul", 
-        		"Mauzolej", 
-        		"Jupiterov hram", 
-        		"Blagovaonica", 
-        		"Kriptoportik", 
-        		"Peristil", 
+        		"Sjeverna vrata", 		"Sjeverozapadna kula",	"Istoèna vrata", 
+        		"Jugoistoèna kula", 	"Zapadna vrata", 		"Južna vrata", 
+        		"Vestibul", 			"Mauzolej",  			"Jupiterov hram", 
+        		"Blagovaonica", 		"Kriptoportik", 		"Peristil", 
         		"Zgrada istoèno od Mauzoleja"
+        };
+        
+        
+        koordinatePodruma = new LatLng[]{
+        		new LatLng(43.507888, 16.439446), // 6A
+        		new LatLng(43.507880, 16.439244), // 4A
+        		new LatLng(43.507967, 16.439121), // 2C
+        		new LatLng(43.508059, 16.439122), // 2D
+        		new LatLng(43.508068, 16.439231), // 3D
+        		new LatLng(43.507754, 16.439145), // juzno od 4A
+        		new LatLng(43.507743, 16.439844), // 11A
+        		new LatLng(43.507597, 16.440360), // 17B
+        		new LatLng(43.507685, 16.440265), // 15C
+        };
+        
+        imenaPodruma = new String[]{
+        		"Velika dvorana", 	
+        		"Mala dvorana", 		
+        		"Drvene grede",        			
+        		"Sarkofag",	
+        		"Tijesak za proizvodnju maslinovog ulja", 
+        		"Dijelovi kamenih cijevi antièke kanalizacije ", 	
+        		"Tablinum", 
+        		"Triklinij", 
+        		"Nimfej"
         };
         
         
         nacrtajMarkere(imenaLokacija, koordinateLokacija); //poslije ubaciti i nizeve imenaPodruma i koodinatePodruma
 
-    }
-    
-    public void nacrtajMarkere(String[] imena, LatLng[] koordinate){
-    	String dotakniZaVise = getResources().getString(R.string.tap_for_more);
-    	
-    	for(int i=0; i<13; i++){
-    		karta.dodajMarker(koordinate[i], imena[i], dotakniZaVise);
-    	}
-    }
-    
-    @Override //ovo je za postavke
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        if (mDrawerToggle.onOptionsItemSelected(item)) {
-            return true; //otvori izbornik klikom na ikonu aplikacije
-        }
-        
-        int id = item.getItemId();
-        if (id == R.id.action_change_map) {
-        	karta.promjeniVrstuMape();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
     
     private void inicijalizirajMapu() {
@@ -119,6 +115,34 @@ public class MainActivity extends ActionBarActivity {
             }            
     	}    	
     }
+    
+    public void nacrtajMarkere(String[] imena, LatLng[] koordinate){
+    	String dotakniZaVise = getResources().getString(R.string.tap_for_more);
+    	
+    	karta.mapa.clear();
+    	karta.promjeniSloj(R.drawable.mapa, 0.3f);
+    	
+    	for(int i=0; i<imena.length; i++){
+    		karta.dodajMarker(koordinate[i], imena[i], dotakniZaVise);
+    	}
+    }
+    
+    @Override //ovo je za postavke
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if (mDrawerToggle.onOptionsItemSelected(item)) {
+            return true; //otvori izbornik klikom na ikonu aplikacije
+        }
+        
+        int id = item.getItemId();
+        if (id == R.id.action_change_map) {
+        	karta.promjeniVrstuMape();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+    
+
 
     private void inicijalizirajNavigationDrawer(){
     	
@@ -191,11 +215,13 @@ public class MainActivity extends ActionBarActivity {
     	switch(position){
     	case 0:
     		nacrtajMarkere(imenaLokacija, koordinateLokacija);
+    		karta.pomakni(koordinateLokacija[11], 17);
     		poruka = getResources().getString(R.string.toast_ground_checked);
     		Toast.makeText(this, poruka, Toast.LENGTH_SHORT).show();
     		break;
     	case 1:
-    		nacrtajMarkere(imenaLokacija, koordinateLokacija);
+    		nacrtajMarkere(imenaPodruma, koordinatePodruma);
+    		karta.pomakni(koordinatePodruma[6], 18);
     		poruka = getResources().getString(R.string.toast_basements_checked);
     		Toast.makeText(this, poruka, Toast.LENGTH_SHORT).show();
     		break;
