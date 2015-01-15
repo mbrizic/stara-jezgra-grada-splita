@@ -1,10 +1,16 @@
 package com.example.starajezgragradasplita;
 
+import java.util.Locale;
+
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,16 +30,23 @@ public class MainActivity extends ActionBarActivity {
 
 	private Karta karta;
 	
-	//stvari za navigation drawer (koji je nedovršen)
 	private String[] mItems;
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
     private ListView mDrawerList;
     
+    private String lang;
+    
     private LatLng[] koordinateLokacija;
     private LatLng[] koordinatePodruma;
-    private String[] imenaLokacija;
-    private String[] imenaPodruma;
+    private String[] imenaLokacijaHr;
+    private String[] imenaLokacijaEn;
+    private String[] imenaPodrumaHr;
+    private String[] imenaPodrumaEn;
+    
+    private enum Kat{
+    	PODRUMI, IZNAD
+    }
 		
 	
     @Override
@@ -43,6 +56,9 @@ public class MainActivity extends ActionBarActivity {
        
 		inicijalizirajMapu();
         inicijalizirajNavigationDrawer();
+        
+        lang = Locale.getDefault().getLanguage();
+        Log.e("jezik", lang);
         
         koordinateLokacija = new LatLng[]{
         		new LatLng(43.509298, 16.440778), // sj vrata
@@ -60,11 +76,19 @@ public class MainActivity extends ActionBarActivity {
         		new LatLng(43.508091, 16.440757) // istoèno od mauzolej        		
         };
         
-        imenaLokacija = new String[]{        		
-        		"Sjeverna vrata", 		"Sjeverozapadna kula",	"Istoèna vrata", 
-        		"Jugoistoèna kula", 	"Zapadna vrata", 		"Južna vrata", 
-        		"Vestibul", 			"Mauzolej",  			"Jupiterov hram", 
-        		"Blagovaonica", 		"Kriptoportik", 		"Peristil", 
+        imenaLokacijaHr = new String[]{        		
+        		"Sjeverna vrata", 			"Sjeverozapadna kula",	"Istoèna vrata", 
+        		"Jugoistoèna kula", 		"Zapadna vrata", 		"Južna vrata", 
+        		"Vestibul", 				"Mauzolej",  			"Jupiterov hram", 
+        		"Blagovaonica", 			"Kriptoportik", 		"Peristil", 
+        		"Zgrada istoèno od Mauzoleja"
+        };
+        
+        imenaLokacijaEn = new String[]{
+        		"Northern gate", 			"Sjeverozapadna kula",	"Istoèna vrata", 
+        		"Jugoistoèna kula", 		"Zapadna vrata", 		"Južna vrata", 
+        		"Vestibul", 				"Mauzolej",  			"Jupiterov hram", 
+        		"Blagovaonica", 			"Kriptoportik", 		"Peristil", 
         		"Zgrada istoèno od Mauzoleja"
         };
         
@@ -81,21 +105,19 @@ public class MainActivity extends ActionBarActivity {
         		new LatLng(43.507685, 16.440265), // 15C
         };
         
-        imenaPodruma = new String[]{
-        		"Velika dvorana", 	
-        		"Mala dvorana", 		
-        		"Drvene grede",        			
-        		"Sarkofag",	
-        		"Tijesak za proizvodnju maslinovog ulja", 
-        		"Dijelovi kamenih cijevi antièke kanalizacije ", 	
-        		"Tablinum", 
-        		"Triklinij", 
-        		"Nimfej"
+        imenaPodrumaHr = new String[]{
+        		"Velika dvorana",     	"Mala dvorana",         						"Drvene grede",        			
+        		"Sarkofag",	        	"Tijesak za proizvodnju maslinovog ulja",      	"Dijelovi kamenih cijevi antièke kanalizacije ", 	
+        		"Tablinum",         	"Triklinij",        							"Nimfej"
         };
         
+        imenaPodrumaEn = new String[]{
+        		"Big hall",     	"Mala dvorana",         						"Drvene grede",        			
+        		"Sarkofag",	        	"Tijesak za proizvodnju maslinovog ulja",      	"Dijelovi kamenih cijevi antièke kanalizacije ", 	
+        		"Tablinum",         	"Triklinij",        							"Nimfej"
+        };
         
-        nacrtajMarkere(imenaLokacija, koordinateLokacija); //poslije ubaciti i nizeve imenaPodruma i koodinatePodruma
-
+        nacrtajMarkere(Kat.IZNAD);
     }
     
     private void inicijalizirajMapu() {
@@ -116,9 +138,32 @@ public class MainActivity extends ActionBarActivity {
     	}    	
     }
     
-    public void nacrtajMarkere(String[] imena, LatLng[] koordinate){
+    public void nacrtajMarkere(Kat kat){
     	String dotakniZaVise = getResources().getString(R.string.tap_for_more);
+    	String[] imena;
+    	LatLng[] koordinate;
     	
+    	if(kat == Kat.IZNAD){
+    		if(lang.equalsIgnoreCase("en")){
+    			imena = imenaLokacijaEn;
+    			Log.e("f", "imenaLokacijaEn");
+    		}else{
+    			imena = imenaLokacijaHr;
+    			Log.e("f", "imenaLokacijaHr");
+    		}
+       		
+    		koordinate = koordinateLokacija;
+    	}else{
+    		if(lang.equalsIgnoreCase("en")){
+    			imena = imenaPodrumaEn;
+    		}else{
+    			imena = imenaPodrumaHr;
+    		}
+    
+    		
+    		koordinate = koordinatePodruma;
+    	}    	
+    	    	
     	karta.mapa.clear();
     	karta.promjeniSloj(R.drawable.mapa, 0.3f);
     	
@@ -126,6 +171,7 @@ public class MainActivity extends ActionBarActivity {
     		karta.dodajMarker(koordinate[i], imena[i], dotakniZaVise);
     	}
     }
+    
     
     @Override //ovo je za postavke
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -214,13 +260,13 @@ public class MainActivity extends ActionBarActivity {
     	//obradi dogaðaj
     	switch(position){
     	case 0:
-    		nacrtajMarkere(imenaLokacija, koordinateLokacija);
+    		nacrtajMarkere(Kat.IZNAD);
     		karta.pomakni(koordinateLokacija[11], 17);
     		poruka = getResources().getString(R.string.toast_ground_checked);
     		Toast.makeText(this, poruka, Toast.LENGTH_SHORT).show();
     		break;
     	case 1:
-    		nacrtajMarkere(imenaPodruma, koordinatePodruma);
+    		nacrtajMarkere(Kat.PODRUMI);
     		karta.pomakni(koordinatePodruma[6], 18);
     		poruka = getResources().getString(R.string.toast_basements_checked);
     		Toast.makeText(this, poruka, Toast.LENGTH_SHORT).show();
@@ -228,6 +274,8 @@ public class MainActivity extends ActionBarActivity {
     	case 2:
     		karta.promjeniVrstuMape();
     		break;
+    	case 3:
+    			
     	default:
     		Toast.makeText(this, "odabrana je stavka " + String.valueOf(position)+ " - " + mItems[position], Toast.LENGTH_LONG).show();
     		break;

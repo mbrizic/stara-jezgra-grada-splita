@@ -17,7 +17,6 @@ import com.mbrizic.starajezgragradasplita.R;
 
 public class Karta{
 	
-	//TEST TEST
 	
 	GoogleMap mapa;
 	private Polyline linija;
@@ -84,14 +83,7 @@ public class Karta{
 											.zoom(zoom).build();
 		mapa.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 	}
-	
-	protected void dodajLiniju(LatLng... args){
-		linija.remove();
-		PolylineOptions opcije = new PolylineOptions().add(args).color(Color.CYAN);
 		
-		linija = mapa.addPolyline(opcije);
-	}
-	
 	
 	protected void dodajMarker(LatLng koordinate, String naslov, String opis){
 		MarkerOptions marker = new MarkerOptions()
