@@ -17,7 +17,6 @@ import com.mbrizic.starajezgragradasplita.R;
 
 public class Karta{
 	
-	//TEST TEST
 	
 	GoogleMap mapa;
 	private Polyline linija;
@@ -33,7 +32,7 @@ public class Karta{
 	public Karta(){
 		
 		vrstaMape = GoogleMap.MAP_TYPE_HYBRID; //inaèe može biti i TERRAIN, NORMAL ili SATTELITE;
-        koordinateCentraPalace = new LatLng(43.5081322, 16.4410438);
+        koordinateCentraPalace = new LatLng(43.508132, 16.440154);
         
         koordinateJZRubaSlike = new LatLng(43.507170, 16.438616);
         koordinateSIRubaSlike = new LatLng(43.509588, 16.441715);
@@ -51,14 +50,16 @@ public class Karta{
         
         pomakni(koordinateCentraPalace, defaultniZoomPalace); 
         
-       promjeniSloj(R.drawable.mapa, defaultnaTransparentnost); //može biti i R.drawable.mapa_transp, ili bilo koja nova         
+        promjeniSloj(R.drawable.mapa, defaultnaTransparentnost); //može biti i R.drawable.mapa_transp, ili bilo koja nova         
         
 	}
 	
 	public void promjeniSloj(int noviSloj, float transparentnost){
-		if (sloj != null)
-			sloj.remove();
 		
+		try{
+			sloj.remove();
+		}catch(Exception e){}
+			
 		GroundOverlayOptions mapaPalace = new GroundOverlayOptions()
 			.image(BitmapDescriptorFactory.fromResource(noviSloj)) 
 			.positionFromBounds(new LatLngBounds(koordinateJZRubaSlike, koordinateSIRubaSlike))
@@ -82,14 +83,7 @@ public class Karta{
 											.zoom(zoom).build();
 		mapa.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 	}
-	
-	protected void dodajLiniju(LatLng... args){
-		linija.remove();
-		PolylineOptions opcije = new PolylineOptions().add(args).color(Color.CYAN);
 		
-		linija = mapa.addPolyline(opcije);
-	}
-	
 	
 	protected void dodajMarker(LatLng koordinate, String naslov, String opis){
 		MarkerOptions marker = new MarkerOptions()
