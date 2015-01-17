@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
+
+    <ScrollView
+        android:id="@+id/landGallery"
+        android:layout_width="210dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <ImageView
+                    android:id="@+id/picture1"
+                    android:layout_width="200dp"
+                    android:layout_height="150dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/pozadina_slika"
+                    android:visibility="gone" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar1"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="180dp"
+                    android:layout_height="15dp"
+                    android:layout_centerInParent="true"
+                    android:progressDrawable="@drawable/novi_progress_bar"
+                    android:visibility="gone" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <ImageView
+                    android:id="@+id/picture2"
+                    android:layout_width="200dp"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/pozadina_slika"
+                    android:visibility="gone" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar2"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="180dp"
+                    android:layout_height="15dp"
+                    android:layout_centerInParent="true"
+                    android:progressDrawable="@drawable/novi_progress_bar"
+                    android:visibility="gone" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <ImageView
+                    android:id="@+id/picture3"
+                    android:layout_width="200dp"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/pozadina_slika"
+                    android:visibility="gone" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar3"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="180dp"
+                    android:layout_height="15dp"
+                    android:layout_centerInParent="true"
+                    android:progressDrawable="@drawable/novi_progress_bar"
+                    android:visibility="gone" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <ImageView
+                    android:id="@+id/picture4"
+                    android:layout_width="200dp"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="1dp"
+                    android:background="@drawable/pozadina_slika"
+                    android:visibility="gone" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar4"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="180dp"
+                    android:layout_height="15dp"
+                    android:layout_centerInParent="true"
+                    android:progressDrawable="@drawable/novi_progress_bar"
+                    android:visibility="gone" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_toRightOf="@id/landGallery"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/upute"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5sp"
+                    android:background="@drawable/pozadina_slika"
+                    android:padding="8sp"
+                    android:text="@string/upute_text"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#8c7965"
+                    android:visibility="visible" />
+
+                <ImageView
+                    android:id="@+id/bigPicture"
+                    android:layout_width="match_parent"
+                    android:layout_height="350dp"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/pozadina_slika"
+                    android:visibility="gone" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/opis"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5sp"
+                android:background="@drawable/pozadina_slika"
+                android:padding="8sp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#8c7965" />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

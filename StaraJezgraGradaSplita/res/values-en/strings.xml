@@ -12,7 +12,8 @@
     <string name="drawer_close">Close drawer</string>
     
     <string name="naslov_panorame">Panorama</string>
-
+    
+    <string name="upute_text">Click on the image to enlarge it</string>
     
     <string-array name="navigation_items">
         <item>Show ground locations</item>

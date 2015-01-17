@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,7 +26,7 @@ import com.mbrizic.starajezgragradasplita.R;
 
 public class Opis extends ActionBarActivity {
 
-	private TextView opis;
+	private TextView opis, upute;
 
 	private ImageView picView;
 
@@ -33,6 +34,9 @@ public class Opis extends ActionBarActivity {
 	ArrayList<ImageView> imgArray = new ArrayList<ImageView>();
 	// Index liste imgArray
 	int indexImgView = 0;
+	
+	ArrayList<ProgressBar> progressArray = new ArrayList<ProgressBar>();
+	
 	// Objekt kojim se dohvacaju elementi klase Lokacija
 	Lokacija curLokacijaObj = null;
 
@@ -52,6 +56,7 @@ public class Opis extends ActionBarActivity {
 		dohvatiMarker();
 
 		opis = (TextView) findViewById(R.id.opis);
+		upute = (TextView) findViewById(R.id.upute);
 		
 		// Postavljanje svih stvari da se otvori resursi.xml i pozove funkcija
 		// za parsiranje xml-a -> parseXML(parser)
@@ -83,9 +88,15 @@ public class Opis extends ActionBarActivity {
 			final ImageView picView1 = (ImageView) findViewById(R.id.picture1);
 			picView1.setVisibility(View.VISIBLE);
 			imgArray.add(picView1);
+			final ProgressBar progressBar1 = (ProgressBar) findViewById(R.id.progressBar1);
+			if((curLokacijaObj.getSlikaIndex() + curLokacijaObj.getPanoramSize()) > 1)
+				progressBar1.setVisibility(View.VISIBLE);
+			progressArray.add(progressBar1);
 			
 			imgArray.get(0).setOnClickListener(new OnClickListener() {
 				public void onClick(View v) {
+					upute.setVisibility(View.GONE);
+					picView.setVisibility(View.VISIBLE);
 					if (!curLokacijaObj.isPanoramaEmpty() && indexImgView == 0) {
 						pozivKlasePanorama();
 					} else
@@ -98,9 +109,15 @@ public class Opis extends ActionBarActivity {
 			if((curLokacijaObj.getSlikaIndex() + curLokacijaObj.getPanoramSize()) >= 1)
 				picView2.setVisibility(View.VISIBLE);
 			imgArray.add(picView2);
+			final ProgressBar progressBar2 = (ProgressBar) findViewById(R.id.progressBar2);
+			if((curLokacijaObj.getSlikaIndex() + curLokacijaObj.getPanoramSize()) > 1)
+				progressBar2.setVisibility(View.VISIBLE);
+			progressArray.add(progressBar2);
 			
 			imgArray.get(1).setOnClickListener(new OnClickListener() {
 				public void onClick(View v) {
+					upute.setVisibility(View.GONE);
+					picView.setVisibility(View.VISIBLE);
 					if (!curLokacijaObj.isPanoramaEmpty() && indexImgView == 1) {
 						pozivKlasePanorama();
 					} else
@@ -113,9 +130,15 @@ public class Opis extends ActionBarActivity {
 			if((curLokacijaObj.getSlikaIndex() + curLokacijaObj.getPanoramSize()) >= 2)
 				picView3.setVisibility(View.VISIBLE);
 			imgArray.add(picView3);
+			final ProgressBar progressBar3 = (ProgressBar) findViewById(R.id.progressBar3);
+			if((curLokacijaObj.getSlikaIndex() + curLokacijaObj.getPanoramSize()) > 2)
+				progressBar3.setVisibility(View.VISIBLE);
+			progressArray.add(progressBar3);
 			
 			imgArray.get(2).setOnClickListener(new OnClickListener() {
 				public void onClick(View v) {
+					upute.setVisibility(View.GONE);
+					picView.setVisibility(View.VISIBLE);
 					if (!curLokacijaObj.isPanoramaEmpty() && indexImgView == 2) {
 						pozivKlasePanorama();
 					} else
@@ -128,9 +151,15 @@ public class Opis extends ActionBarActivity {
 			if((curLokacijaObj.getSlikaIndex() + curLokacijaObj.getPanoramSize()) == 3)
 				picView4.setVisibility(View.VISIBLE);
 			imgArray.add(picView4);
+			final ProgressBar progressBar4 = (ProgressBar) findViewById(R.id.progressBar4);
+			if(curLokacijaObj.getSlikaIndex() == 3)
+				progressBar4.setVisibility(View.VISIBLE);
+			progressArray.add(progressBar4);
 			
 			imgArray.get(3).setOnClickListener(new OnClickListener() {
 				public void onClick(View v) {
+					upute.setVisibility(View.GONE);
+					picView.setVisibility(View.VISIBLE);
 					if (!curLokacijaObj.isPanoramaEmpty() && indexImgView == 3) {
 						pozivKlasePanorama();
 					} else
@@ -227,15 +256,16 @@ public class Opis extends ActionBarActivity {
 
 		// Postavljanje malih slika
 		for (indexImgView = 0; indexImgView <= curLokacijaObj.getSlikaIndex(); indexImgView++) {
-			BitmapWorkerTask task = new BitmapWorkerTask(imgArray.get(indexImgView));
+			BitmapWorkerTask task = new BitmapWorkerTask(imgArray.get(indexImgView), progressArray.get(indexImgView));
 			//inHorizontalScrollView.addView(imgArray.get(indexImgView));
 			task.execute(curLokacijaObj.getSlikaUrl(indexImgView));
 		}
+		/*
 		// Postavljenje velike slike na prvu malu
-		BitmapWorkerTask task = new BitmapWorkerTask(picView);
+		BitmapWorkerTask task = new BitmapWorkerTask(picView, progressBar);
 		if(indexImgView > 0)
 			task.execute(curLokacijaObj.getSlikaUrl(0));
-		
+		*/
 
 		// Postavljanje panorame na zadnje mjesto malih slika
 		if (!curLokacijaObj.isPanoramaEmpty() && indexImgView <= imgArray.size()) {
