@@ -18,6 +18,7 @@ import android.widget.ProgressBar;
 class BitmapWorkerTask extends AsyncTask<String, Integer/*Void*/, Bitmap> {
     private final WeakReference<ImageView> imageViewReference;
     private ProgressBar progressBar;
+    Bitmap bitmap = null;
 
     public BitmapWorkerTask(ImageView imageView, ProgressBar tempProgressBar) {
         // Use a WeakReference to ensure the ImageView can be garbage
@@ -44,7 +45,7 @@ class BitmapWorkerTask extends AsyncTask<String, Integer/*Void*/, Bitmap> {
     // Decode image in background.
     @Override
     protected Bitmap doInBackground(String... params) {
-    	Bitmap bitmap = null;
+    	//Bitmap bitmap = null;
         try {
         	URL url = new URL(params [0]);
         	HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -82,13 +83,17 @@ class BitmapWorkerTask extends AsyncTask<String, Integer/*Void*/, Bitmap> {
 
     // Once complete, see if ImageView is still around and set bitmap.
     @Override
-    protected void onPostExecute(Bitmap bitmap) {
-        if (imageViewReference != null && bitmap != null) {
+    protected void onPostExecute(Bitmap tempBitmap) {
+        if (imageViewReference != null && tempBitmap != null) {
             final ImageView imageView = imageViewReference.get();
             if (imageView != null) {
             	progressBar.setVisibility(View.GONE);
-                imageView.setImageBitmap(bitmap);
+                imageView.setImageBitmap(tempBitmap);
             }
         }
+    }
+    
+    protected void bitmapRecycle() {
+    	bitmap.recycle();
     }
 }

@@ -44,6 +44,8 @@ public class Opis extends ActionBarActivity {
 	boolean lokacijaPostoji;
 
 	String markerTitle;
+	
+	BitmapWorkerTask task = null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -89,18 +91,19 @@ public class Opis extends ActionBarActivity {
 			picView1.setVisibility(View.VISIBLE);
 			imgArray.add(picView1);
 			final ProgressBar progressBar1 = (ProgressBar) findViewById(R.id.progressBar1);
-			if((curLokacijaObj.getSlikaIndex() + curLokacijaObj.getPanoramSize()) > 1)
+			if((curLokacijaObj.getSlikaIndex() + curLokacijaObj.getPanoramSize()) > 1 || (curLokacijaObj.getPanoramSize() == 0))
 				progressBar1.setVisibility(View.VISIBLE);
 			progressArray.add(progressBar1);
 			
 			imgArray.get(0).setOnClickListener(new OnClickListener() {
 				public void onClick(View v) {
-					upute.setVisibility(View.GONE);
-					picView.setVisibility(View.VISIBLE);
 					if (!curLokacijaObj.isPanoramaEmpty() && indexImgView == 0) {
 						pozivKlasePanorama();
-					} else
+					} else {
+						upute.setVisibility(View.GONE);
+						picView.setVisibility(View.VISIBLE);
 						picView.setImageDrawable(picView1.getDrawable());
+					}
 				}
 			});
 		}
@@ -110,18 +113,19 @@ public class Opis extends ActionBarActivity {
 				picView2.setVisibility(View.VISIBLE);
 			imgArray.add(picView2);
 			final ProgressBar progressBar2 = (ProgressBar) findViewById(R.id.progressBar2);
-			if((curLokacijaObj.getSlikaIndex() + curLokacijaObj.getPanoramSize()) > 1)
+			if((curLokacijaObj.getSlikaIndex() + curLokacijaObj.getPanoramSize()) > 1 || (curLokacijaObj.getPanoramSize() == 0))
 				progressBar2.setVisibility(View.VISIBLE);
 			progressArray.add(progressBar2);
 			
 			imgArray.get(1).setOnClickListener(new OnClickListener() {
 				public void onClick(View v) {
-					upute.setVisibility(View.GONE);
-					picView.setVisibility(View.VISIBLE);
 					if (!curLokacijaObj.isPanoramaEmpty() && indexImgView == 1) {
 						pozivKlasePanorama();
-					} else
+					} else {
+						upute.setVisibility(View.GONE);
+						picView.setVisibility(View.VISIBLE);
 						picView.setImageDrawable(picView2.getDrawable());
+					}
 				}
 			});
 		}
@@ -131,18 +135,19 @@ public class Opis extends ActionBarActivity {
 				picView3.setVisibility(View.VISIBLE);
 			imgArray.add(picView3);
 			final ProgressBar progressBar3 = (ProgressBar) findViewById(R.id.progressBar3);
-			if((curLokacijaObj.getSlikaIndex() + curLokacijaObj.getPanoramSize()) > 2)
+			if((curLokacijaObj.getSlikaIndex() + curLokacijaObj.getPanoramSize()) > 2 || (curLokacijaObj.getPanoramSize() == 0))
 				progressBar3.setVisibility(View.VISIBLE);
 			progressArray.add(progressBar3);
 			
 			imgArray.get(2).setOnClickListener(new OnClickListener() {
 				public void onClick(View v) {
-					upute.setVisibility(View.GONE);
-					picView.setVisibility(View.VISIBLE);
 					if (!curLokacijaObj.isPanoramaEmpty() && indexImgView == 2) {
 						pozivKlasePanorama();
-					} else
+					} else {
+						upute.setVisibility(View.GONE);
+						picView.setVisibility(View.VISIBLE);
 						picView.setImageDrawable(picView3.getDrawable());
+					}
 				}
 			});
 		}
@@ -152,27 +157,58 @@ public class Opis extends ActionBarActivity {
 				picView4.setVisibility(View.VISIBLE);
 			imgArray.add(picView4);
 			final ProgressBar progressBar4 = (ProgressBar) findViewById(R.id.progressBar4);
-			if(curLokacijaObj.getSlikaIndex() == 3)
+			if(curLokacijaObj.getSlikaIndex() == 3 || (curLokacijaObj.getPanoramSize() == 0))
 				progressBar4.setVisibility(View.VISIBLE);
 			progressArray.add(progressBar4);
 			
 			imgArray.get(3).setOnClickListener(new OnClickListener() {
 				public void onClick(View v) {
-					upute.setVisibility(View.GONE);
-					picView.setVisibility(View.VISIBLE);
 					if (!curLokacijaObj.isPanoramaEmpty() && indexImgView == 3) {
 						pozivKlasePanorama();
-					} else
+					} else {
+						upute.setVisibility(View.GONE);
+						picView.setVisibility(View.VISIBLE);
 						picView.setImageDrawable(picView4.getDrawable());
+					}
 				}
 			});
 		}
-
+		
 		// Ako postoji lokacija u XML datoteci onda prikazi njen sadrzaj
 		if(lokacijaPostoji)
 			prikaziLokaciju(curLokacijaObj);
 	}
+	/*
+	@Override
+	public void onConfigurationChanged(Configuration newConfig) {
+	    super.onConfigurationChanged(newConfig);
 
+	    // Checks the orientation of the screen
+	    if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+	        Toast.makeText(this, "landscape", Toast.LENGTH_SHORT).show();
+	        //onSaveInstanceState(newBundy);
+	        for(int i=0; i<imgArray.size(); i++)
+	        	imgArray.get(i).setImageDrawable(imgArray.get(i).getDrawable());
+	    } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
+	        Toast.makeText(this, "portrait", Toast.LENGTH_SHORT).show();
+	        for(int i=0; i<imgArray.size(); i++)
+	        	imgArray.get(i).setImageDrawable(imgArray.get(i).getDrawable());
+	    }
+	}*/
+	/*
+	@Override
+	public void onSaveInstanceState(Bundle outState) {
+	    super.onSaveInstanceState(outState);
+	    outState.putBundle("imgSave", imgSave);
+	    
+	    
+	}
+
+	@Override
+	protected void onRestoreInstanceState(Bundle savedInstanceState) {
+	    super.onRestoreInstanceState(savedInstanceState);
+	    savedInstanceState.getBundle("imgSave");
+	}*/
 	/*
 	 * @Override public boolean onCreateOptionsMenu(Menu menu) { // Inflate the
 	 * menu; this adds items to the action bar if it is present.
@@ -187,8 +223,7 @@ public class Opis extends ActionBarActivity {
 	}
 
 	// Funkcija za prasiranje XML-a
-	private void parseXML(XmlPullParser parser) throws XmlPullParserException,
-			IOException {
+	private void parseXML(XmlPullParser parser) throws XmlPullParserException, IOException {
 
 		int eventType = parser.getEventType();
 		String curText = "";
@@ -243,7 +278,6 @@ public class Opis extends ActionBarActivity {
 
 			default:
 				break;
-
 			}
 			eventType = parser.next();
 		}
@@ -256,7 +290,7 @@ public class Opis extends ActionBarActivity {
 
 		// Postavljanje malih slika
 		for (indexImgView = 0; indexImgView <= curLokacijaObj.getSlikaIndex(); indexImgView++) {
-			BitmapWorkerTask task = new BitmapWorkerTask(imgArray.get(indexImgView), progressArray.get(indexImgView));
+			task = new BitmapWorkerTask(imgArray.get(indexImgView), progressArray.get(indexImgView));
 			//inHorizontalScrollView.addView(imgArray.get(indexImgView));
 			task.execute(curLokacijaObj.getSlikaUrl(indexImgView));
 		}
@@ -286,6 +320,9 @@ public class Opis extends ActionBarActivity {
 
 	// Postavljanje tipke za povratak na MainActivity
 	public boolean onOptionsItemSelected(MenuItem item) {
+		if(!curLokacijaObj.isSlikaUrlEmpty())
+			task.bitmapRecycle();
+		
 		Intent intent = new Intent(Opis.this, MainActivity.class);
 	    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);   
 	    startActivity(intent);

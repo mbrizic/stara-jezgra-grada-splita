@@ -26,6 +26,13 @@ class Lokacija {
 		int temp = slikaUrl.size();
 		return --temp;
 	}
+	
+	public boolean isSlikaUrlEmpty() {
+		if(this.slikaUrl.isEmpty())
+			return true;
+		else
+			return false;
+	}
 
 	public String getPanorama() {
 		return panorama;
