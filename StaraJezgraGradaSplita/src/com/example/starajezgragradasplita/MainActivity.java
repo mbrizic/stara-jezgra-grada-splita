@@ -3,13 +3,10 @@ package com.example.starajezgragradasplita;
 import java.util.Locale;
 
 import android.content.Intent;
-import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -73,7 +70,7 @@ public class MainActivity extends ActionBarActivity {
         		new LatLng(43.507597, 16.440360), // blagovaonica
         		new LatLng(43.507551, 16.440129), // kriptoportik
         		new LatLng(43.508132, 16.440154), // peristil
-        		new LatLng(43.508091, 16.440757) // istoèno od mauzolej        		
+        		new LatLng(43.508091, 16.440757)  // istoèno od mauzoleja      		
         };
         
         imenaLokacijaHr = new String[]{        		
@@ -85,11 +82,11 @@ public class MainActivity extends ActionBarActivity {
         };
         
         imenaLokacijaEn = new String[]{
-        		"Northern gate", 			"Sjeverozapadna kula",	"Istoèna vrata", 
-        		"Jugoistoèna kula", 		"Zapadna vrata", 		"Južna vrata", 
-        		"Vestibul", 				"Mauzolej",  			"Jupiterov hram", 
-        		"Blagovaonica", 			"Kriptoportik", 		"Peristil", 
-        		"Zgrada istoèno od Mauzoleja"
+        		"Northern gate", 			"Northwestern tower",	"East Gate", 
+        		"South tower", 				"West gate", 			"South gate", 
+        		"Vestibule", 				"Mausoleum",  			"Temple of Jupiter", 
+        		"Dining room", 				"Cryptoporticus", 		"Peristyle", 
+        		"Building east of the Mausoleum"
         };
         
         
@@ -107,14 +104,14 @@ public class MainActivity extends ActionBarActivity {
         
         imenaPodrumaHr = new String[]{
         		"Velika dvorana",     	"Mala dvorana",         						"Drvene grede",        			
-        		"Sarkofag",	        	"Tijesak za proizvodnju maslinovog ulja",      	"Dijelovi kamenih cijevi antièke kanalizacije ", 	
+        		"Sarkofag",	        	"Tijesak za proizvodnju maslinovog ulja",      	"Dijelovi kamenih cijevi antièke kanalizacije", 	
         		"Tablinum",         	"Triklinij",        							"Nimfej"
         };
         
         imenaPodrumaEn = new String[]{
-        		"Big hall",     	"Mala dvorana",         						"Drvene grede",        			
-        		"Sarkofag",	        	"Tijesak za proizvodnju maslinovog ulja",      	"Dijelovi kamenih cijevi antièke kanalizacije ", 	
-        		"Tablinum",         	"Triklinij",        							"Nimfej"
+        		"Great Hall",     	"Small Hall",         								"Beams of wood",        			
+        		"Sarcophagus",	    "Pressure equipment for production of olive oil",   "Parts of stone pipes from the ancient sewage system", 	
+        		"Tablinum  ",       "Triclinium",        								"Nymphaeum"
         };
         
         nacrtajMarkere(Kat.IZNAD);
@@ -146,11 +143,11 @@ public class MainActivity extends ActionBarActivity {
     	if(kat == Kat.IZNAD){
     		if(lang.equalsIgnoreCase("en")){
     			imena = imenaLokacijaEn;
-    			Log.e("f", "imenaLokacijaEn");
     		}else{
     			imena = imenaLokacijaHr;
-    			Log.e("f", "imenaLokacijaHr");
     		}
+    		
+    	
        		
     		koordinate = koordinateLokacija;
     	}else{

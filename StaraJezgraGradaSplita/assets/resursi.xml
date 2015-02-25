@@ -84,7 +84,7 @@
 	    <slika>http://adria.fesb.hr/~isoric/GIS/slike/slika15c.jpg</slika>
 	    <slika>http://adria.fesb.hr/~isoric/GIS/slike/slika15d.jpg</slika>
     </lokacija>
-    <lokacija ime="Vestibul_eng">
+    <lokacija ime="Vestibule">
 	    <naslov>Vestibul</naslov>
 	    <opis>Vestibule was the entrance hall in Diocletian's apartment. Outside is a large cube-like, and in a circular hall, which was decorated with marble slabs. At the top was a dome with a mosaic, and in the niches were sculptures.</opis>
 	    <slika>http://adria.fesb.hr/~isoric/GIS/slike/slika15a.jpg</slika>
@@ -143,7 +143,7 @@
 	    <opis>Otvoreni prostor pred ulazom u carev stan nazvan je Peristil. Nalazio se na glavnom kardinu (cardo), nekadašnje Dioklecijanove palače i u sjevernom se dijelu križao s njenim glavnimdekumanom (decumanus). S bočnih strana je omeđen s dva reda stupova u korintskom stilu povezanih međusobno lukovima. Bočne strane pročelja su bile ukrašene dvjema sfigama od kojih se jedna i dan-danas nalazi na trgu gotovo savršeno očuvana. Pročelje trga je podjeljeno u dva dijela: gornji vodi u Vestibul, a donji stepenicama u veličanstvenepodrume palače. Pročelje koje vodi u Vestibul bilo je ukrašeno s tri kipa od kojih je jedan predstavljao cara Dioklecijana, drugi boga Jupitera dok treći ostaje nepoznanica.</opis>
 	    <panorama>slika23</panorama>
     </lokacija>
-    <lokacija ime="Peristil_eng">
+    <lokacija ime="Peristyle">
 	    <naslov>Peristil</naslov>
 	    <opis>Open space in front of the entrance into the emperor called the Peristyle. It was located on the main Cardin (Cardo), of the palace in the northern part intersected with her glavnimdekumanom (decumanus). On the sides is bordered by two rows of columns in the Corinthian style interconnected arches. The sides of the facades were decorated with two sfiga one of which is to this day in the square almost perfectly preserved. The front of the square is divided into two parts: the upper water in the vestibule, and the lower stairs in veličanstvenepodrume palace. The facade that leads to the vestibule was decorated with three statues one of which is represented by the Emperor Diocletian, the second of Jupiter while the third remains unknown.</opis>
 	    <panorama>slika23</panorama>
@@ -221,7 +221,7 @@
 	    <opis>Funkcija ove dvorane uzdužnog tlocrta proizlazi iz središnjega položaja unutar stana kao dijela aksijalnog ceremonijalnog sklopa kojim je počasna garda vodila posjetitelje k carevim odajama na zapadnom području carske rezidencije. Dva reda od četiri pilona davali su odgovarajućoj prizemnoj središnjoj dvorani izgled trobrodnoga prostora. Takva je konstrukcija bila potrebna zbog izgradnje unakrsnih bačvastih svodova koji su nosili gornji kat.</opis>
 	    <slika>http://adria.fesb.hr/~isoric/GIS/slike/Podrumi/11A.jpg</slika>
     </lokacija>
-    <lokacija ime="Tablinum_eng">
+    <lokacija ime="Tablinum">
 	    <naslov>Tablinum</naslov>
 	    <opis>Function of this longitudinal hall stems from the central position in the apartments as part of the axis of the ceremonial complex along which the guard of honour took visitors to the emperor’s chambers at the west end of the residence. Two rows of four piers gave the corresponding hall at ground level an appearance of a three-aisled chamber. This construction was necessary due to the construction of cross- vaulted ceilings that bare upper floor.</opis>
 	    <slika>http://adria.fesb.hr/~isoric/GIS/slike/Podrumi/11A.jpg</slika>

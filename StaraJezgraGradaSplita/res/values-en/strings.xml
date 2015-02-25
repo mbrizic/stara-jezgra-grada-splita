@@ -18,8 +18,7 @@
     <string-array name="navigation_items">
         <item>Show ground locations</item>
         <item>Show basement rooms</item>
-        <item>Change background</item>
-		<item>test</item>       
+        <item>Change background</item>      
     </string-array>    
     
     
